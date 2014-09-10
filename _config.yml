@@ -1,11 +1,11 @@
 # Site settings
 # Enter your own credentials here
 title: "My Blog"
-email: you@somewhere.com
+email: awhite40@gatech.edu
 description: >
   Tell us about your site
-baseurl: "/research-pages" # replace ``/research-pages`` with the name of the parents repository
-url: "Materials-Informatics-Lab.github.io" # replate ``Materials-Informatics-Lab`` with your Github username
+baseurl: "/MIC-Modeling-Polymer-Composites" # replace ``/research-pages`` with the name of the parents repository
+url: "awhite40.github.io" # replate ``Materials-Informatics-Lab`` with your Github username
 twitter_username: twitterhandle
 disqus: tonyfast
 
@@ -18,7 +18,7 @@ paginate: 5
 
 
 gh:
-  user: Materials-Informatics-Lab
+  user: awhite40
   repo: research-pages
   # Branch hosting Github pages
   branch: gh-pages
