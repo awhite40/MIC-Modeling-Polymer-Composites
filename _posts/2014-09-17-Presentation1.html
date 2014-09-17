@@ -34,12 +34,22 @@ Cross=sectional Views
 
 ##Thresholding
 
+Thresholding was done to separate the pixels representing the fibers from the pixels representing the matrix. 
+To determine the value for thresholding the image, a threshold scan was done in each of the three planar directions (figure below). 
 ![thresholding graph](https://farm4.staticflickr.com/3862/15269083822_d6bb0c2210_o.jpg)
+
+From this figure we can choose a thresholding value to apply to the images.  A threshold value of 250 was chosed to produce the following image.
+![thresholded image](
 
 Code can be found at this [Gist](https://gist.github.com/awhite40/fa1178364ae06c8b1658).
 
-
-
 # Problems
 
+* Remove edges of the dicom images obtained from Micro-CT
+* Optimal boundaries for cropping to keep maximum possible experimental data
+
 # Next Steps
+
+* Choose the number of states (h)
+* Create a microstructure function
+* Determine spacial statistics on sample
