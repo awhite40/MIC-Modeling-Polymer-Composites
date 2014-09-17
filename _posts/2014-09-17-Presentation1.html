@@ -10,14 +10,16 @@ image:
 
 ---
 
-# Current Work
+# Structure-Property Linkage Development: Glass fiber reinforced composite
+
+## Current Work
 Initial [Dicom](http://dicom.nema.org/) images.
 {% for images in page.image %}
 !["IMAGES"]({{images}})
 <br>
 {% endfor %}
 
-## Visualization
+### Visualization
 
 3D Visualization of a single layer (first DICOM image)
 ![3d visualization of a single layer first dicom image](https://cloud.githubusercontent.com/assets/8506416/4306262/6dbfec74-3e7f-11e4-85b2-73e11a4e7be0.jpg)
@@ -39,7 +41,7 @@ Cross=sectional Views
 
 ![cross-sectional view 2](https://cloud.githubusercontent.com/assets/8506416/4306337/2d6a5488-3e80-11e4-85a5-31310fca1ed0.jpg)
 
-##Thresholding
+### Thresholding
 
 [Thresholding](http://www.mathworks.com/discovery/image-thresholding.html) was done to separate the pixels representing the fibers from the pixels representing the matrix. 
 To determine the value for thresholding the image, a threshold scan was done in each of the three planar directions (figure below). 
@@ -49,11 +51,11 @@ From this figure we can choose a thresholding value to apply to the images.
 
 Code can be found at this [Gist](https://gist.github.com/awhite40/fa1178364ae06c8b1658).
 
-# Problems
+## Problems
 
 * Determine optimal boundaries for cropping to keep maximum possible experimental data
 
-# Next Steps
+## Next Steps
 
 * Choose the number of states (h)
 * Create a microstructure function
