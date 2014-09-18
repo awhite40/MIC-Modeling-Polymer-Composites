@@ -12,7 +12,7 @@ flickr:
   - https://farm4.staticflickr.com/3856/15146588721_aa5b5d7936_o.jpg
   - https://farm6.staticflickr.com/5573/14963006408_1a7f13d4dd_o.jpg
   # parent set
-  set: https://www.flickr.com/photos/127356396@N07/sets/72157647273539805
+set: https://www.flickr.com/photos/127356396@N07/sets/72157647273539805
 3D:
   - single: https://cloud.githubusercontent.com/assets/8506416/4306262/6dbfec74-3e7f-11e4-85b2-73e11a4e7be0.jpg
   - singlemiddle: https://cloud.githubusercontent.com/assets/8506416/4306276/8b435a60-3e7f-11e4-8378-4d32a82331c0.jpg
