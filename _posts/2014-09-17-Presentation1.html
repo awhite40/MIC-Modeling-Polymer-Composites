@@ -1,1 +1,63 @@
 
+---
+layout: post
+title:  "Structure-Property Linkage Development: Glass fiber reinforced composite"
+
+image:
+- https://farm4.staticflickr.com/3921/15149572605_b19a46d1f5_o.jpg
+- https://farm4.staticflickr.com/3856/15146588721_aa5b5d7936_o.jpg
+- https://farm6.staticflickr.com/5573/14963006408_1a7f13d4dd_o.jpg
+
+---
+
+## Current Work
+
+{% for images in page.image %}
+!["IMAGES"]({{images}})
+<br>
+{% endfor %}
+
+
+### Visualization
+
+3D Visualization of a single layer (first DICOM image)
+![3d visualization of a single layer first dicom image](https://cloud.githubusercontent.com/assets/8506416/4306262/6dbfec74-3e7f-11e4-85b2-73e11a4e7be0.jpg)
+
+3D Visualization of a single layer's (first DICOM image's) middle portion
+![3d visualization of a single layer s first dicom image s middle portion](https://cloud.githubusercontent.com/assets/8506416/4306276/8b435a60-3e7f-11e4-8378-4d32a82331c0.jpg)
+
+2D Visualization of a single layer (third DICOM image)
+![2d visualization of a single layer third dicom image](https://cloud.githubusercontent.com/assets/8506416/4306298/cb6ac434-3e7f-11e4-909c-b0ee87ea5ef9.jpg)
+
+3D Visualization of 5 layers' (first five DICOM images') shortened middle portion
+![3d visualization of 5 layers first five dicom images shortened middle portion](https://cloud.githubusercontent.com/assets/8506416/4306318/fa638b54-3e7f-11e4-9344-0882dfc7669b.jpg)
+
+3D Visualization of 5 layers' (first five DICOM images') elongated middle portion
+![3d visualization of 5 layers first five dicom images elongated middle portion](https://cloud.githubusercontent.com/assets/8506416/4306328/21a7ea52-3e80-11e4-98b5-91048bf1f042.jpg)
+
+Cross=sectional Views
+![cross-sectional view 1](https://cloud.githubusercontent.com/assets/8506416/4306338/2d6d7c58-3e80-11e4-8e8a-700521f8c897.jpg)
+
+![cross-sectional view 2](https://cloud.githubusercontent.com/assets/8506416/4306337/2d6a5488-3e80-11e4-85a5-31310fca1ed0.jpg)
+
+
+### Thresholding
+
+[Thresholding](http://www.mathworks.com/discovery/image-thresholding.html) was done to separate the pixels representing the fibers from the pixels representing the matrix. 
+To determine the value for thresholding the image, a threshold scan was done in each of the three planar directions (figure below). 
+![thresholding graph](https://farm4.staticflickr.com/3862/15269083822_d6bb0c2210_o.jpg)
+
+From this figure we can choose a thresholding value to apply to the images.
+
+Code can be found at this [Gist](https://gist.github.com/awhite40/fa1178364ae06c8b1658).
+
+## Problems
+
+* Determine optimal boundaries for cropping to keep maximum possible experimental data
+* Metric for determining if the thresholding is "good'
+
+## Next Steps
+
+* Choose the number of states (h)
+* Create a microstructure function
+* Determine spacial statistics on sample
