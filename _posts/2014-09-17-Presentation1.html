@@ -12,7 +12,7 @@ image:
 
 ## Current Work
 Initial [Dicom](http://dicom.nema.org/) images.
-{% for images in site.data.images %}
+{% for images in site._data.images.yaml['flickr'] %}
 !["IMAGES"]({{images}})
 <br>
 {% endfor %}
