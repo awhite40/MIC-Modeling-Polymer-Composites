@@ -1,0 +1,29 @@
+
+# Volume Fraction Calculation
+gists: 
+  Stacking Dicoms: https://gist.github.com/tonyfast/afafb762798e9204bac4
+  Proposal: https://gist.github.com/awhite40/e6e4a8d8a47dbfdd19b8
+tags:
+  - Experiments
+  - AnalysisMagic
+units:
+  - x: 10 #microns/pixel
+    y: 10 #microns/pixel
+# Images avaiable on Flickr
+flickr:
+  dicom1: https://farm4.staticflickr.com/3921/15149572605_b19a46d1f5_o.jpg
+  dicom2: https://farm4.staticflickr.com/3856/15146588721_aa5b5d7936_o.jpg
+  dicom3: https://farm6.staticflickr.com/5573/14963006408_1a7f13d4dd_o.jpg
+  # parent set
+  set: https://www.flickr.com/photos/127356396@N07/sets/72157647273539805
+3D:
+  single: https://cloud.githubusercontent.com/assets/8506416/4306262/6dbfec74-3e7f-11e4-85b2-73e11a4e7be0.jpg
+  single_middle: https://cloud.githubusercontent.com/assets/8506416/4306276/8b435a60-3e7f-11e4-8378-4d32a82331c0.jpg
+  2D: https://cloud.githubusercontent.com/assets/8506416/4306298/cb6ac434-3e7f-11e4-909c-b0ee87ea5ef9.jpg
+  5Layer: https://cloud.githubusercontent.com/assets/8506416/4306318/fa638b54-3e7f-11e4-9344-0882dfc7669b.jpg
+  
+  
+author:
+  - name: Tony Fast
+  - email: tony.fast@gmail.com
+thumb: https://farm3.staticflickr.com/2689/12972815434_734b24ef1d_q.jpg+
