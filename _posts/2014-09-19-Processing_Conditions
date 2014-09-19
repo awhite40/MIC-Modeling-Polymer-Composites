@@ -1,0 +1,19 @@
+---
+layout: post
+author: Alicia White
+title: 'Processing Conditions to creat sample'
+---
+
+## Materials
+
+Fiber reinforced composites are composed of 2 componenent: the matrix and the fiber.  Our sample matrix is composed of polypropylene melt.  The density of the polypropylene in these samples is  9.4 g/cm3.  General properties for polypropylene can be found [here](http://www.matweb.com/search/datasheet.aspx?MatGUID=a882a1c603374e278d062f106dfda95b).
+The fiber component is glass fiber with a density of 2.54 g/cm3.  
+
+## Processing
+Creation of the fiber reienforced composite samples consists of two steps: hot melt impregnation and extrusion/compression molding.
+
+### Hot melt impregnation
+Hot melt impregnation is a processing method used with thermoplastic materials to adequately wet the reinforcement with the matrix polymer.
+Adequate wetting is important to final product properties because it ensures the bond between the fiber and the matrix. 
+In hot melt imprgnation, fiber is pulled from a roll and heated above the melting temperature of the chosen polymer.  
+For the polypropylene used to make these samples processing temperatures would be in excess of 174 degrees Celcius.  Then the 
