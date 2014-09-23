@@ -1,0 +1,18 @@
+---
+Layout: post
+title: Thresholding
+---
+
+In progress
+
+To extract the data from our images, it is first necessary to separate the image into the fiber and the matrix components.  In order
+accomplish this we used a simple form of image segmentation known as Thresholding.  Thresholding takes all of the pixels in an image
+that are lower than a certain threshold and assigns them to the lowest value of the pixels and all the pixels above the threshold value are
+assigned the maximum value.  If this process is done for a range of threshold values, a graph can be created from volume fraction vs. threshold
+value.  If the volume fraction of the two constituents is known the optimal thresholding value can simply be determined from this graph.  
+
+Combining layers to form a 3D matrix adds complexity to the problem.  The value of thresholding will now depend on volume fractions in three
+dimensions as well as requiring the need to loop through the various 2D slices.  The various graphs can be plotted together to show the variation
+in the variation across three dimesions.  The following plots show these graphs for the X-Y plane, the Y-Z plane and the X-Z plane.  
+
+
