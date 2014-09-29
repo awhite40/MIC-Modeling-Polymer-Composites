@@ -1,7 +1,6 @@
 {
 	"name": "Cropped_fiber_matrix.mat",
 	"local": "_data/Cropped_fiber_matrix.mat",
-	"header": "_data/Cropped_fiber_matrix.mat.json",
 	"voxels": {
 		"min": -2942,
 		"max": 29274,
@@ -9,18 +8,5 @@
 		"std": 2331.858136,
 		"size": [301,301,200]
 	},
-	"images": [
-		{
-			"src": "/assets/topslice-xy.png",
-			"description": "Top XY Slice of Sample Image"
-		},
-		{
-			"src": "/assets/topslice-xz.png",
-			"description": "Top XZ Slice of Sample Image"
-		},
-		{
-			"src": "/assets/topslice-yz.png",
-			"description": "Top YZ Slice of Sample Image"
-		}
-	]
+	"header": "_data/Cropped_fiber_matrix.mat.json"
 }
