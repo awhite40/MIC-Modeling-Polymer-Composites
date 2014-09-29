@@ -6,12 +6,14 @@
   </button>
 
 
-  <button class="btn btn-default" type="button" style="height:54px;">
-  <a href="http://github.com/{{site.gh.user}}/{{site.gh.repo}}/tree/{{site.gh.branch}}/{{page.path}}" target="_blank" title="Github Repository">
-    <span class="octicon octicon-mark-github"></span></a>
-</button>
+
 
 {% if page.path != 'index.html' %}
+<button class="btn btn-default" type="button" style="height:54px;">
+<a href="http://github.com/{{site.gh.user}}/{{site.gh.repo}}/tree/{{site.gh.branch}}/{{page.path}}" target="_blank" title="Github Repository">
+  <span class="octicon octicon-mark-github"></span></a>
+</button>
+
 <button class="btn btn-default" type="button" style="height:54px;">
 <a href="http://github.com/{{site.gh.user}}/{{site.gh.repo}}/edit/{{site.gh.branch}}/{{page.path}}" target="_blank" title="Edit Markup">
   <span class="octicon octicon-pencil"></span></a>
@@ -22,6 +24,10 @@
 </button>
 
 {% else %}
+<button class="btn btn-default" type="button" style="height:54px;">
+<a href="http://github.com/{{site.gh.user}}/{{site.gh.repo}}/tree/{{site.gh.branch}}" target="_blank" title="Github Repository">
+  <span class="octicon octicon-mark-github"></span></a>
+</button>
 
 <button class="btn btn-default" type="button" style="height:54px;">
 <a href="http://github.com/{{site.gh.user}}/{{site.gh.repo}}/new/{{site.gh.branch}}" target="_blank" title="New Page"><span class="octicon octicon-plus"></span></a>
