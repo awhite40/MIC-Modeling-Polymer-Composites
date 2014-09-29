@@ -37,6 +37,10 @@
 				"src": "/assets/midslice-yz.png",
 				"description": "Middle YZ Slice of Sample Image"
 			}
-		]
+		],
+		"distribution": {
+			"src": "/assets/raw-image-stats.png",
+			"description": "This distribution of pixels values and their gradients."
+		}
 	}
 }
