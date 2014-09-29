@@ -1,0 +1,42 @@
+{
+	"name": "Cropped_fiber_matrix_400_400",
+	"local": "_data/Cropped_fiber_matrix_400_400.mat",
+	"header": "_data/Cropped_fiber_matrix_400_400.mat.json",
+	"voxels": {
+		"min": -1858,
+		"max": 17603,
+		"mean": 3968.205313,
+		"std": 1969.689071,
+		"size": [301,301,300]
+	},
+	"images": {
+		"top": [
+			{
+				"src": "/assets/topslice-xy.png",
+				"description": "Top XY Slice of Sample Image"
+			},
+			{
+				"src": "/assets/topslice-xz.png",
+				"description": "Top XZ Slice of Sample Image"
+			},
+			{
+				"src": "/assets/topslice-yz.png",
+				"description": "Top YZ Slice of Sample Image"
+			}
+		],
+		"mid": [
+			{
+				"src": "/assets/midslice-xy.png",
+				"description": "Middle XY Slice of Sample Image"
+			},
+			{
+				"src": "/assets/midslice-xz.png",
+				"description": "Middle XZ Slice of Sample Image"
+			},
+			{
+				"src": "/assets/midslice-yz.png",
+				"description": "Middle YZ Slice of Sample Image"
+			}
+		]
+	}
+}

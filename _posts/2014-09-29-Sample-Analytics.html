@@ -3,7 +3,7 @@ layout: post
 title: Analytics on Working Specimen
 
 
-src: Cropped_fiber_matrixmat
+src: Cropped_fiber_matrix_400_400mat
 ---
 
 {% assign dat = site.data | map: {{page.src}} %}
@@ -30,11 +30,21 @@ Analytics on the raw Image voxels.
     </div>
 </div>
 
-## Image Slices
+## Face Slices
 
 These slices are the top faces in X-Y, Y-Z, and X-Z of the volumetric image.
 
-{% for img in dat[0].images %}
+{% for img in dat[0].images.top %}
+![{{img.description}}]({{site.baseurl}}/{{img.src}})
+
+> {{img.description}}
+{% endfor %}
+
+## Middle Slices
+
+These slices are the top faces in X-Y, Y-Z, and X-Z of the volumetric image.
+
+{% for img in dat[0].images.mid %}
 ![{{img.description}}]({{site.baseurl}}/{{img.src}})
 
 > {{img.description}}
