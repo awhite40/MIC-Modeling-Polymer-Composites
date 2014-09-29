@@ -1,0 +1,12 @@
+{
+	"name": "Cropped_fiber_matrix.mat",
+	"local": "_data/Cropped_fiber_matrix.mat",
+	"voxels": {
+		"min": -2942,
+		"max": 29274,
+		"mean": 1839.587789,
+		"std": 2331.858136,
+		"size": [301,301,200]
+	},
+	"header": "_data/Cropped_fiber_matrix.mat.json"
+}
