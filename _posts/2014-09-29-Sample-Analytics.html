@@ -12,18 +12,30 @@ src: Cropped_fiber_matrixmat
 
 Analytics on the raw Image voxels.
 
-<div class="col-lg-6">
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>Field</th>
-            <th>Value (voxels)</th>
-        </tr>
-        
-        {% for analytics in dat[0].voxels %}
-        <tr>
-            <td>{{analytics[0]}}</td>
-            <td>{{analytics[1]}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Field</th>
+                <th>Value (voxels)</th>
+            </tr>
+            
+            {% for analytics in dat[0].voxels %}
+            <tr>
+                <td>{{analytics[0]}}</td>
+                <td>{{analytics[1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
+
+## Image Slices
+
+These slices are the top faces in X-Y, Y-Z, and X-Z of the volumetric image.
+
+{% for img in dat[0].images %}
+![{{img.description}}]({{site.baseurl}}/{{img.src}})
+
+> {{img.description}}
+{% endfor %}
