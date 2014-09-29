@@ -12,6 +12,7 @@ src: Cropped_fiber_matrixmat
 
 Analytics on the raw Image voxels.
 
+<div class="row">
 <div class="col-lg-6">
     <table class="table table-bordered table-striped">
         <tr>
@@ -27,3 +28,14 @@ Analytics on the raw Image voxels.
         {% endfor %}
     </table>
 </div>
+</div>
+
+## Working Image Top Slice
+
+I need a little bit more explanation about what these features on this fine of a scale.
+
+What features correspond to the features in the bulk specimen?
+
+{% for img in dat[0].images %}
+![{{img.description}}]({{site.baseurl}}/{{img.src}})
+{% endfor %}
