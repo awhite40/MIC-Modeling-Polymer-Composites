@@ -4,6 +4,9 @@ title: Analytics on Working Specimen
 
 
 src: Cropped_fiber_matrix_400_400mat
+
+references: 
+- http://www.mathworks.com/matlabcentral/fileexchange/23611-peak-fitter
 ---
 
 {% assign dat = site.data | map: {{page.src}} %}
@@ -53,3 +56,11 @@ These slices are the top faces in X-Y, Y-Z, and X-Z of the volumetric image.
 ## Distribution of Pixels Values
 
 ![{{dat[0].images.distribution.description}}]({{site.baseurl}}/{{dat[0].images.distribution.src}})
+
+## Test Peak Fitting on the Image's Histogram
+
+> There should be at least two distinct peaks in the image histogram for this data, 
+but the peaks are heavily convolved. We tried a peak fitting code from [Matlab Central]({{page.references[0]}})
+and produced the following output. **Please add your interpretations.**
+
+![{{dat[0].images.peaks.description}}]({{site.baseurl}}/{{dat[0].images.peaks.src}})

@@ -101,6 +101,36 @@ saveas( gcf,'./assets/raw-image-stats.png')
 data.('images').('distribution') = struct( 'src', '/assets/raw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
+%%
+[yy,xx] = hist( cropped(:),151)
+[ p,e ]= peakfit( [xx;yy], 0,0,3,1 );
+
+figure(gcf);
+grid on
+hold( gca, 'on')
+GRADE = [ gradient(yy); gradient(gradient(yy)) ];
+
+
+%%%%%%%%%% NORMALIZE GRADIENTS FOR VISUALIZATION ONLY!
+% The range of error values in the peak fit plot is orders of magnitude
+% less than the gradients.  The normalization allows them to be viewed
+% simultaneously.  We are not relying on the magnitudes of the gradients in
+% this plot.
+
+dGradient = diff([min(GRADE(:)),max(GRADE(:))])
+dScale = diff( ylim( gca ) );
+GRADEPLOT = GRADE .* dScale./dGradient;
+
+%%%%%%%%%%
+% h = plot( gca, xx, GRADEPLOT, ... Plot gradients of distribution
+%     'LineWidth',3)
+hold off
+
+% legend( h, 'First Gradient', 'Second Gradient' )
+set( gcf, 'Position', get(0,'ScreenSize')./[ 1 1 2 1] )
+saveas( gcf,'./assets/peak-fit-test.png')
+data.('images').('peaks') = struct( 'src', '/assets/peak-fit-test.png', 'description', 'Peak fitting of the histogram generated from a 3-D volume.' )
+
 
 
 %% 
