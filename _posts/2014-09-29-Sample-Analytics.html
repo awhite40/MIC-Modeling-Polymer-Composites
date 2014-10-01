@@ -11,6 +11,9 @@ references:
 
 {% assign dat = site.data | map: {{page.src}} %}
 
+> To facilitate developing code for working on the 3-D image we chose to isolate a portion of the image for analysis.  
+The data chosen was in a 300 voxel cubed area.   
+
 ## Image Analytics
 
 Analytics on the raw Image voxels.
@@ -55,12 +58,28 @@ These slices are the top faces in X-Y, Y-Z, and X-Z of the volumetric image.
 
 ## Distribution of Pixels Values
 
+> To better understand the range of our data, we created a histogram and combined it with the derivatives of our data.  The histogram 
+shows 2 or more convoluted peaks; consistent with the presence of two phases in our samples.  This visualization highlighted a  region
+after the 5000 value where the derivates are slowly converging to zero.  
+
 ![{{dat[0].images.distribution.description}}]({{site.baseurl}}/{{dat[0].images.distribution.src}})
 
 ## Test Peak Fitting on the Image's Histogram
 
 > There should be at least two distinct peaks in the image histogram for this data, 
 but the peaks are heavily convolved. We tried a peak fitting code from [Matlab Central]({{page.references[0]}})
-and produced the following output. **Please add your interpretations.**
+and produced the following output. The fit was significantly improved by adding a third Gaussian peak in addition to the two 
+expected peaks.  It is thought that this third signal represents the uncertain pixels due to the various sources of uncertainty in our measurement.
+It is perhaps helpful to note that the intersection of the second and third fit peaks occures at approximately the same location 
+as the begining of the region of interest from the previous graph.  
+
 
 ![{{dat[0].images.peaks.description}}]({{site.baseurl}}/{{dat[0].images.peaks.src}})
+
+## Thresholding at 5000
+
+
+## Challenges and Next Steps
+* Many image analysis codes do not work well or at all on 3D datasets.
+    - Can anyone suggest good resources either in Matlab or another language such as Python?
+* 
