@@ -27,16 +27,16 @@ shading flat
 axis equal;
 colorbar
 colormap gray
-saveas(gcf, './assets/topslice-xy.png' )
-data.('images').('top')(1) = struct( 'src', '/assets/topslice-xy.png', 'description', 'Top XY Slice of Sample Image' );
+saveas(gcf, './assets/N_topslice-xy.png' )
+data.('images').('top')(1) = struct( 'src', '/assets/N_topslice-xy.png', 'description', 'Top XY Slice of Sample Image' );
 
 pcolor( squeeze( cropped(:,1,:) )); 
 shading flat
 axis equal;
 colorbar
 colormap gray
-saveas(gcf, './assets/topslice-xz.png' )
-data.('images').('top')(2) = struct( 'src', '/assets/topslice-xz.png', 'description', 'Top XZ Slice of Sample Image' )
+saveas(gcf, './assets/N_topslice-xz.png' )
+data.('images').('top')(2) = struct( 'src', '/assets/N_topslice-xz.png', 'description', 'Top XZ Slice of Sample Image' )
 
 
 pcolor( squeeze( cropped(1,:,:) )); 
@@ -44,8 +44,8 @@ shading flat
 axis equal;
 colorbar
 colormap gray
-saveas(gcf, './assets/topslice-yz.png' )
-data.('images').('top')(3) = struct( 'src', '/assets/topslice-yz.png', 'description', 'Top YZ Slice of Sample Image' )
+saveas(gcf, './assets/N_topslice-yz.png' )
+data.('images').('top')(3) = struct( 'src', '/assets/N_topslice-yz.png', 'description', 'Top YZ Slice of Sample Image' )
 
 
 s = savejson( [], data )
@@ -96,9 +96,15 @@ set( [h1;h2], 'LineWidth',3)
 set( ax,'Fontsize',16)
 ylabel(ax(1), 'Raw Data')
 ylabel(ax(2), 'Gradients')
-
 saveas( gcf,'./assets/raw-image-stats.png')
 data.('images').('distribution') = struct( 'src', '/assets/raw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
+figure
+[yy,xx] = hist( cropped(:),151)
+[ p,e ]= peakfit( [xx;yy], 0,0,3,1 );
+
+saveas( gcf,'./assets/2_peak_fit.png')
+data.('images').('2_Peak_fit') = struct( 'src', '/assets/2_peak_fit.png', 'description', 'This is the peak fit using 2 peaks.' )
+
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 %%

@@ -23,6 +23,18 @@
 				"src": "/assets/N_topslice-yz.png",
 				"description": "Top YZ Slice of Sample Image"
 			}
-		]
+		],
+		"distribution": {
+			"src": "/assets/raw-image-stats.png",
+			"description": "This distribution of pixels values and their gradients."
+		},
+		"Peak_fit2": {
+			"src": "/assets/2_peak_fit.png",
+			"description": "This is the peak fit using 2 peaks."
+		},
+		"Peak_fit3": {
+			"src": "/assets/3_peak_fit.png",
+			"description": "This is the peak fit using 3 peaks."
+		}
 	}
 }
