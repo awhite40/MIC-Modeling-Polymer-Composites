@@ -2,8 +2,10 @@
 title: Analytics on Second Sample
 layout: post
 src: Cropped_fiber_matrix_N_400_400mat
+src2: Cropped_fiber_matrix_400_400mat
 ---
 {% assign dat = site.data | map: {{page.src}} %}
+{% assign dat2 = site.data | map:{{page.src2}} %}
 
 
 ## Images Stats
@@ -35,6 +37,17 @@ These are slices in the X-Y, Y-Z and X-Z planes
 
 > {{img.description}}
 {% endfor %}
+
+## Comparision of Distribution of Pixel Values
+
+![{{dat[0].images.distribution.description}}]({{site.baseurl}}/{{dat[0].images.distribution.src}})
+
+> Distribution of Sample N
+
+![{{dat2[0].images.distribution.description}}]({{site.baseurl}}/{{dat2[0].images.distribution.src}})
+
+> Distribution of Sample S
+
 
 
 
