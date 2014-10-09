@@ -8,5 +8,21 @@
 		"mean": 3860.706431,
 		"std": 1968.235645,
 		"size": [301,301,300]
+	},
+	"images": {
+		"top": [
+			{
+				"src": "/assets/N_topslice-xy.png",
+				"description": "Top XY Slice of Sample Image"
+			},
+			{
+				"src": "/assets/N_topslice-xz.png",
+				"description": "Top XZ Slice of Sample Image"
+			},
+			{
+				"src": "/assets/N_topslice-yz.png",
+				"description": "Top YZ Slice of Sample Image"
+			}
+		]
 	}
 }
