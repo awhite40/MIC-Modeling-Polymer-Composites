@@ -10,8 +10,9 @@ src: Cropped_fiber_matrix_N_400_400mat
 	
 
             
-{for analytics in dat[0].voxels %}
+{% for analytics in dat[0].voxels %}
 <tr>
 	<td>{{analytics[0]}}</td>
 	<td>{{analytics[1]}}</td>
 </tr>
+{% endfor %}
