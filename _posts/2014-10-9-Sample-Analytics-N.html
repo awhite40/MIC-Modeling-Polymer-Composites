@@ -4,14 +4,23 @@ layout: post
 src: Cropped_fiber_matrix_N_400_400mat
 ---
 
+## Images Stats
 
-{% assign dat = site.data | map: {{page.src}} %}
-	
-
-            
-{% for analytics in dat[0].voxels %}
-<tr>
-	<td>{{analytics[0]}}</td>
-	<td>{{analytics[1]}}</td>
-</tr>
-{% endfor %}
+<div class = "row">
+	<div class = "col-lg-6">
+		<table class="table table-boardered table striped">
+			<tr>
+				<th> Field</th>
+				<th>Value (voxels)</th>
+			</tr>
+			
+			{% for analytics in dat[0].voxels %}
+			<tr>
+				<td>{{analytics[0]}}</td>
+				<td>{{analytics[1]}}</td>
+				
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
