@@ -1,12 +1,12 @@
 %% Load in Data
 
-data.('name') = 'Cropped_fiber_matrix_400_400'
-data.('local') = '_data/Cropped_fiber_matrix_400_400.mat'
-data.('header') = '_data/Cropped_fiber_matrix_400_400.mat.json'
+data.('name') = 'Cropped_fiber_matrix_N_400_400'
+data.('local') = 'Ncropped'
+data.('header') = '_data/Cropped_fiber_matrix_N_400_400.mat.json'
 
 % Mat variable name called cropped
-load( data.local, 'cropped' );
-cropped = double( cropped );
+load( data.local, 'Ncropped' );
+cropped = double( Ncropped );
 
 
 data.('voxels').('min') = min( cropped(:)) ;
@@ -28,7 +28,7 @@ axis equal;
 colorbar
 colormap gray
 saveas(gcf, './assets/topslice-xy.png' )
-data.('images').('top')(1) = struct( 'src', '/assets/topslice-xy.png', 'description', 'Top XY Slice of Sample Image' )
+data.('images').('top')(1) = struct( 'src', '/assets/topslice-xy.png', 'description', 'Top XY Slice of Sample Image' );
 
 pcolor( squeeze( cropped(:,1,:) )); 
 shading flat
