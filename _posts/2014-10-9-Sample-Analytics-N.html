@@ -30,7 +30,7 @@ src: Cropped_fiber_matrix_N_400_400mat
 ## Slices
 These are slices in the X-Y, Y-Z and X-Z planes
 
-{% for img in dat{0}.images.top %}
+{% for img in dat[0].images.top %}
 ![{{img.description}}]({{site.baseurl}}/{{img.src}})
 
 > {{img.description}}
