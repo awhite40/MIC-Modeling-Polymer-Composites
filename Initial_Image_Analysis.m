@@ -83,30 +83,39 @@ fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
 %% Image Histogram
 
-[yy,xx] = hist( cropped(:),151)
+[yy,xx] = hist( cropped(:),151);
 
 [ax, h1,h2] = plotyy( xx, yy,... Plot distribution
     xx, [gradient(yy); gradient(gradient(yy))] ... Plot gradients of distribution
-    )
+    );
 figure(gcf)
 % set(gca,'Yscale','log')
-legend([h1;h2], 'Raw','First Derivative','Second Derivative')
-grid( ax(1), 'on')
-set( [h1;h2], 'LineWidth',3)
-set( ax,'Fontsize',16)
-ylabel(ax(1), 'Raw Data')
-ylabel(ax(2), 'Gradients')
-saveas( gcf,'./assets/raw-image-stats.png')
+legend([h1;h2], 'Raw','First Derivative','Second Derivative');
+grid( ax(1), 'on');
+set( [h1;h2], 'LineWidth',3);
+set( ax,'Fontsize',16);
+ylabel(ax(1), 'Raw Data');
+ylabel(ax(2), 'Gradients');
+saveas( gcf,'./assets/raw-image-stats.png');
 data.('images').('distribution') = struct( 'src', '/assets/raw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
+figure
+[yy,xx] = hist( cropped(:),151)
+[ p,e ]= peakfit( [xx;yy], 0,0,2,1 );
+
+saveas( gcf,'./assets/2_peak_fit.png')
+data.('images').('Peak_fit2') = struct( 'src', '/assets/2_peak_fit.png', 'description', 'This is the peak fit using 2 peaks.' )
+
 figure
 [yy,xx] = hist( cropped(:),151)
 [ p,e ]= peakfit( [xx;yy], 0,0,3,1 );
 
-saveas( gcf,'./assets/2_peak_fit.png')
-data.('images').('2_Peak_fit') = struct( 'src', '/assets/2_peak_fit.png', 'description', 'This is the peak fit using 2 peaks.' )
-
+saveas( gcf,'./assets/3_peak_fit.png')
+data.('images').('Peak_fit3') = struct( 'src', '/assets/3_peak_fit.png', 'description', 'This is the peak fit using 3 peaks.' )
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
+%% Using imadjust
+
+
 %%
 [yy,xx] = hist( cropped(:),151)
 [ p,e ]= peakfit( [xx;yy], 0,0,3,1 );
