@@ -8,7 +8,5 @@ images:
 ---
 
 {% for im in page.images %}
-<img src="{{im | map:'url'}}" />
-
-<br>
+{{ im | map:'url }}
 {% endfor %}
