@@ -82,8 +82,8 @@ s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
 %% Image Histogram
-Ncropped = double(Ncropped);
-[yy,xx] = hist( Ncropped(:),151);
+Scropped = double(Scropped);
+[yy,xx] = hist( Scropped(:),151);
 
 [ax, h1,h2] = plotyy( xx, yy,... Plot distribution
     xx, [gradient(yy); gradient(gradient(yy))] ... Plot gradients of distribution
@@ -96,8 +96,8 @@ set( [h1;h2], 'LineWidth',3);
 set( ax,'Fontsize',16);
 ylabel(ax(1), 'Raw Data');
 ylabel(ax(2), 'Gradients');
-saveas( gcf,'./assets/raw-image-stats.png');
-data.('images').('distribution') = struct( 'src', '/assets/raw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
+saveas( gcf,'./assets/Sraw-image-stats.png');
+data.('images').('distribution') = struct( 'src', '/assets/Sraw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 %% Peak fitting

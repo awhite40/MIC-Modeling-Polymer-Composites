@@ -25,7 +25,7 @@
 			}
 		],
 		"distribution": {
-			"src": "/assets/raw-image-stats.png",
+			"src": "/assets/Sraw-image-stats.png",
 			"description": "This distribution of pixels values and their gradients."
 		},
 		"Peak_fit2": {
