@@ -1,0 +1,13 @@
+---
+layout: post
+title: Comparing sample images
+
+images:
+- url: https://raw.githubusercontent.com/awhite40/MIC-Modeling-Polymer-Composites/gh-pages/assets/N_topslice-xy.png
+- url: https://raw.githubusercontent.com/awhite40/MIC-Modeling-Polymer-Composites/9a47c9d566a3b548477404f62a488ded60faa406/assets/midslice-xy.png
+---
+
+{% for im in page.images %}
+{{im}}
+<br>
+{% endfor %}
