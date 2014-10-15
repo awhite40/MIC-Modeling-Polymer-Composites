@@ -1,12 +1,12 @@
 %% Load in Data
 
-data.('name') = 'Cropped_fiber_matrix_N_400_400'
-data.('local') = 'Ncropped'
-data.('header') = '_data/Cropped_fiber_matrix_N_400_400.mat.json'
+data.('name') = 'Cropped_fiber_matrix_S_400_400'
+data.('local') = '_data/Cropped_fiber_matrix_400_400.mat'
+data.('header') = '_data/Cropped_fiber_matrix_400_400.mat.json'
 
 % Mat variable name called cropped
-load( data.local, 'Ncropped' );
-cropped = double( Ncropped );
+load( data.local);
+cropped = double( cropped );
 
 
 data.('voxels').('min') = min( cropped(:)) ;
@@ -15,7 +15,7 @@ data.('voxels').('mean') =  mean( cropped(:)) ;
 data.('voxels').('std') =  std( cropped(:)) ;
 data.('voxels').('size') =  size( cropped) ;
 
-s = savejson( [], data )
+s = savejson( [], data );
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 %% Visualization Tools
 % Vol3d
@@ -23,32 +23,31 @@ fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
 %% Visualize Faces
 pcolor( squeeze( cropped(:,:,1) )); 
-shading flat
+shading flat;
 axis equal;
-colorbar
-colormap gray
-saveas(gcf, './assets/N_topslice-xy.png' )
-data.('images').('top')(1) = struct( 'src', '/assets/N_topslice-xy.png', 'description', 'Top XY Slice of Sample Image' );
+colorbar;
+colormap gray;
+saveas(gcf, './assets/S_topslice-xy.png' );
+data.('images').('top')(1) = struct( 'src', '/assets/S_topslice-xy.png', 'description', 'Top XY Slice of Sample Image' );
 
 pcolor( squeeze( cropped(:,1,:) )); 
-shading flat
+shading flat;
 axis equal;
-colorbar
-colormap gray
-saveas(gcf, './assets/N_topslice-xz.png' )
-data.('images').('top')(2) = struct( 'src', '/assets/N_topslice-xz.png', 'description', 'Top XZ Slice of Sample Image' )
+colorbar;
+colormap gray;
+saveas(gcf, './assets/S_topslice-xz.png' );
+data.('images').('top')(2) = struct( 'src', '/assets/S_topslice-xz.png', 'description', 'Top XZ Slice of Sample Image' );
 
 
 pcolor( squeeze( cropped(1,:,:) )); 
-shading flat
+shading flat;
 axis equal;
-colorbar
-colormap gray
-saveas(gcf, './assets/N_topslice-yz.png' )
-data.('images').('top')(3) = struct( 'src', '/assets/N_topslice-yz.png', 'description', 'Top YZ Slice of Sample Image' )
+colorbar;
+colormap gray;
+saveas(gcf, './assets/S_topslice-yz.png' );
+data.('images').('top')(3) = struct( 'src', '/assets/S_topslice-yz.png', 'description', 'Top YZ Slice of Sample Image' );
 
-
-s = savejson( [], data )
+s = savejson( [], data );
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
 %% Visualize Slices
@@ -82,8 +81,8 @@ s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
 %% Image Histogram
-Ncropped = double(Ncropped);
-[yy,xx] = hist( Ncropped(:),151);
+cropped = double(cropped);
+[yy,xx] = hist( cropped(:),151);
 
 [ax, h1,h2] = plotyy( xx, yy,... Plot distribution
     xx, [gradient(yy); gradient(gradient(yy))] ... Plot gradients of distribution
@@ -97,7 +96,7 @@ set( ax,'Fontsize',16);
 ylabel(ax(1), 'Raw Data');
 ylabel(ax(2), 'Gradients');
 saveas( gcf,'./assets/raw-image-stats.png');
-data.('images').('distribution') = struct( 'src', '/assets/Nraw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
+data.('images').('distribution') = struct( 'src', '/assets/raw-image-stats.png', 'description', 'This distribution of pixels values and their gradients.' )
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 %% Peak fitting
@@ -105,15 +104,15 @@ figure
 [yy,xx] = hist( cropped(:),151)
 [ p,e ]= peakfit( [xx;yy], 0,0,2,1 );
 
-saveas( gcf,'./assets/2_peak_fit.png')
-data.('images').('Peak_fit2') = struct( 'src', '/assets/2_peak_fit.png', 'description', 'This is the peak fit using 2 peaks.' )
+saveas( gcf,'./assets/2_peak_fit_N.png')
+data.('images').('Peak_fit2') = struct( 'src', '/assets/2_peak_fit_S.png', 'description', 'This is the peak fit using 2 peaks.' )
 
 figure
 [yy,xx] = hist( cropped(:),151)
 [ p,e ]= peakfit( [xx;yy], 0,0,3,1 );
 
-saveas( gcf,'./assets/3_peak_fit.png')
-data.('images').('Peak_fit3') = struct( 'src', '/assets/3_peak_fit.png', 'description', 'This is the peak fit using 3 peaks.' )
+saveas( gcf,'./assets/3_peak_fi-N.png')
+data.('images').('Peak_fit3') = struct( 'src', '/assets/3_peak_fit_S.png', 'description', 'This is the peak fit using 3 peaks.' )
 s = savejson( [], data )
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 %% Using imadjust

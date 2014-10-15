@@ -1,5 +1,5 @@
 {
-	"name": "Cropped_fiber_matrix_400_400",
+	"name": "Cropped_fiber_matrix_S_400_400",
 	"local": "_data/Cropped_fiber_matrix_400_400.mat",
 	"header": "_data/Cropped_fiber_matrix_400_400.mat.json",
 	"voxels": {
@@ -12,18 +12,30 @@
 	"images": {
 		"top": [
 			{
-				"src": "/assets/topslice-xy.png",
+				"src": "/assets/S_topslice-xy.png",
 				"description": "Top XY Slice of Sample Image"
 			},
 			{
-				"src": "/assets/topslice-xz.png",
+				"src": "/assets/S_topslice-xz.png",
 				"description": "Top XZ Slice of Sample Image"
 			},
 			{
-				"src": "/assets/topslice-yz.png",
+				"src": "/assets/S_topslice-yz.png",
 				"description": "Top YZ Slice of Sample Image"
 			}
 		],
+		"distribution": {
+			"src": "/assets/raw-image-stats.png",
+			"description": "This distribution of pixels values and their gradients."
+		},
+		"Peak_fit2": {
+			"src": "/assets/2_peak_fit_S.png",
+			"description": "This is the peak fit using 2 peaks."
+		},
+		"Peak_fit3": {
+			"src": "/assets/3_peak_fit_S.png",
+			"description": "This is the peak fit using 3 peaks."
+		},
 		"mid": [
 			{
 				"src": "/assets/midslice-xy.png",
@@ -37,28 +49,6 @@
 				"src": "/assets/midslice-yz.png",
 				"description": "Middle YZ Slice of Sample Image"
 			}
-		],
-		"distribution": {
-			"src": "/assets/raw-image-stats.png",
-			"description": "This distribution of pixels values and their gradients."
-		},
-		"peaks": {
-			"src": "/assets/peak-fit-test.png",
-			"description": "Peak fitting of the histogram generated from a 3-D volume."
-		},
-		"Thresh": [
-			{
-				"Before": "https://farm4.staticflickr.com/3927/15226118388_78d3f9b355_n.jpg",
-				"description": "Image before Thresholding"
-				
-			},
-			{
-				"After": "https://farm3.staticflickr.com/2947/15389673636_ec3f490f8b_n.jpg",
-				"description": "Image after Thresholding"
-				
-			}
 		]
-			
-		}
 	}
 }

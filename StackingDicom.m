@@ -16,7 +16,7 @@ for p=start:(nFrames-1+start)
     % J is your original matrix obtained from a DICOM Imag
     J1 = imrotate(J,-4,'bilinear','crop');
     % Cropping
-    J11=imcrop(J1, [300 300 ysize xsize]);
+    J11=imcrop(J1, [400 400 ysize xsize]);
     %figure
     %imshow(J11)
 %     [xs,ys]=size(J11)
