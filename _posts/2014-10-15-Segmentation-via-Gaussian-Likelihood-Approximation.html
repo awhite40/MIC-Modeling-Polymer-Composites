@@ -1,0 +1,235 @@
+---
+layout: default
+title: Segmentation via Gaussian Likelihood Approximation
+
+---
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Load in Dependencies</title><meta name="generator" content="MATLAB 8.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-10-15"><meta name="DC.source" content="SegmentAdvanced.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+
+
+
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 0px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Load in Dependencies</h1><!--introduction--><div><ul><li>Gaussian Likelihood segmentation containing an external peak fitting code</li><li>Some image adjustment tools</li><li>REQUIRES, BUT NOT INCLUDED: <a href="http://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files-in-matlab-octave">JSONlab</a></li></ul></div><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Get Gaussian Likelihood Segmentation Codes</a></li><li><a href="#2">Get Image adjustment codes</a></li><li><a href="#3">Load in a sample</a></li><li><a href="#4">Segment the Image</a></li><li><a href="#6">Plot the Segmentation</a></li></ul></div><h2>Get Gaussian Likelihood Segmentation Codes<a name="1"></a></h2><pre class="codeinput">loc = <span class="string">'segmentprob'</span>;
+<span class="keyword">if</span> ~exist( loc, <span class="string">'dir'</span> );
+    <span class="keyword">try</span>
+        system(<span class="string">'sudo git clone https://gist.github.com/tonyfast/de3d7b841cea38dc40fa.git'</span>);
+    <span class="keyword">catch</span>
+
+        apicall = loadjson( urlread(<span class="string">'https://api.github.com/gists/de3d7b841cea38dc40fa'</span>) );
+
+        <span class="keyword">if</span> ~exist( loc,<span class="string">'dir'</span>);  mkdir( loc ); <span class="keyword">end</span>
+
+        <span class="keyword">for</span> ufilename = fieldnames(apicall.files)'
+            <span class="keyword">if</span> strcmp( apicall.files.(ufilename{1}).filename( end - [1:-1:0] ), <span class="string">'.m'</span> )
+                tofile = fullfile( loc, apicall.files.(ufilename{1}).filename );
+                urlwrite( apicall.files.(ufilename{1}).raw_url, tofile );
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+addpath( loc )
+</pre><h2>Get Image adjustment codes<a name="2"></a></h2><p>Steal these from segmentprob.m Adjust and normalize image data</p><pre class="codeinput">normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
+adjust = @(A)reshape(  <span class="keyword">...</span><span class="comment"> back to original shape</span>
+                imadjust( <span class="keyword">...</span><span class="comment"> adjust image</span>
+                        reshape( <span class="keyword">...</span><span class="comment"> flatten to 2-D image</span>
+                                normalize(A), <span class="keyword">...</span><span class="comment"> normalize from zero to one</span>
+                                size(A,1), numel(A)./size(A,1))), <span class="keyword">...</span><span class="comment"> Reshape to 2-D array</span>
+                                size(A) <span class="keyword">...</span><span class="comment"> Reshape back to original size</span>
+                                );
+</pre><h2>Load in a sample<a name="3"></a></h2><p>Load in the <a href="http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/29/Sample-Analytics.html">Original Polymer</a> composite sepcimen for testing.</p><pre class="codeinput">load( <span class="string">'_data/Cropped_fiber_matrix_400_400.mat'</span> )
+cropped = double( cropped );
+</pre><h2>Segment the Image<a name="4"></a></h2><p>The function takes in two numeric parameters.</p><div><ul><li>nbins  - Number of bins in the histogram.</li><li>npeaks  - Number of peaks to find in the histogram.</li></ul></div><p>Ideas to keep in mind:</p><div><ul><li><i>too many bins</i> - the histogram is too noisy to fit</li><li><i>too few bins</i> - distinct peaks will not be resolved</li></ul></div><div><ul><li><i>too many peaks</i> - over fit the curve</li><li>Add more peaks than phases in case there are transition regions that   can be found.</li></ul></div><pre class="codeinput">A = adjust( normalize( cropped ) ) -  normalize( cropped ) ;
+out = segmentprob( adjust( normalize(cropped) ), 151, 5);
+</pre><img vspace="5" hspace="5" src="SegmentAdvanced_01.png" alt=""> <p>ABOVE: The Distribution of Voxel intensities in the image and the peak fit.</p><h2>Plot the Segmentation<a name="6"></a></h2><pre class="codeinput">ll = [ 51  151 251 ];
+
+<span class="keyword">for</span> ii = [ ll ; <span class="keyword">...</span>
+           1 : 3 ]
+    ax(1) = subplot(3,3, (ii(2)-1) * 3 + 1);
+    pcolor( cropped(:,:,ii(1) ) ); axis <span class="string">equal</span>; axis <span class="string">tight</span>; shading <span class="string">flat</span>
+    ylabel( sprintf(<span class="string">'Layer %i'</span>, ii(1)), <span class="string">'Fontsize'</span>, 16)
+    title(<span class="string">'Original'</span>)
+    ax(2) = subplot(3,3, (ii(2)-1) * 3 + 2);
+    pcolor( out.out.phase(:,:,ii(1) ) ); axis <span class="string">equal</span>; axis <span class="string">tight</span>; shading <span class="string">flat</span>
+    title(<span class="string">'Phase'</span>)
+    ax(3) = subplot(3,3, (ii(2)-1) * 3 + 3);
+    pcolor( out.out.ci(:,:,ii(1) ) ); axis <span class="string">equal</span>; axis <span class="string">tight</span>; shading <span class="string">flat</span>; colorbar
+    title(<span class="string">'Relative Confidence of the phase'</span>)
+    linkaxes( ax )
+<span class="keyword">end</span>
+figure(gcf)
+</pre><img vspace="5" hspace="5" src="SegmentAdvanced_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Load in Dependencies
+%
+% * Gaussian Likelihood segmentation containing an external peak fitting
+% code
+% * Some image adjustment tools
+% * REQUIRES, BUT NOT INCLUDED:
+% <http://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlabREPLACE_WITH_DASH_DASHa-toolbox-to-encode-decode-json-files-in-matlab-octave JSONlab>
+
+
+%% Get Gaussian Likelihood Segmentation Codes
+
+loc = 'segmentprob'; 
+if ~exist( loc, 'dir' );
+    try
+        system('sudo git clone https://gist.github.com/tonyfast/de3d7b841cea38dc40fa.git');
+    catch
+        
+        apicall = loadjson( urlread('https://api.github.com/gists/de3d7b841cea38dc40fa') );
+        
+        if ~exist( loc,'dir');  mkdir( loc ); end
+        
+        for ufilename = fieldnames(apicall.files)'
+            if strcmp( apicall.files.(ufilename{1}).filename( end - [1:-1:0] ), '.m' )
+                tofile = fullfile( loc, apicall.files.(ufilename{1}).filename );
+                urlwrite( apicall.files.(ufilename{1}).raw_url, tofile );
+            end
+        end
+    end
+end
+addpath( loc )
+
+%% Get Image adjustment codes
+%
+% Steal these from segmentprob.m
+% Adjust and normalize image data
+
+normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
+adjust = @(A)reshape(  ... back to original shape
+                imadjust( ... adjust image
+                        reshape( ... flatten to 2-D image
+                                normalize(A), ... normalize from zero to one
+                                size(A,1), numel(A)./size(A,1))), ... Reshape to 2-D array
+                                size(A) ... Reshape back to original size
+                                );
+
+
+%% Load in a sample
+% Load in the <http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/29/Sample-Analytics.html Original Polymer>
+% composite sepcimen for testing.
+
+load( '_data/Cropped_fiber_matrix_400_400.mat' )
+cropped = double( cropped );
+
+%% Segment the Image
+%
+% The function takes in two numeric parameters.
+% 
+% * nbins  - Number of bins in the histogram. 
+% * npeaks  - Number of peaks to find in the histogram. 
+%
+% Ideas to keep in mind:
+%
+% * _too many bins_ - the histogram is too noisy to fit
+% * _too few bins_ - distinct peaks will not be resolved
+%
+% * _too many peaks_ - over fit the curve
+% * Add more peaks than phases in case there are transition regions that
+%   can be found.
+
+A = adjust( normalize( cropped ) ) -  normalize( cropped ) ;
+out = segmentprob( adjust( normalize(cropped) ), 151, 5);
+
+%%
+%
+% ABOVE: The Distribution of Voxel intensities in the image and the peak fit.
+
+%% Plot the Segmentation
+ll = [ 51  151 251 ];
+
+for ii = [ ll ; ...
+           1 : 3 ]
+    ax(1) = subplot(3,3, (ii(2)-1) * 3 + 1);
+    pcolor( cropped(:,:,ii(1) ) ); axis equal; axis tight; shading flat
+    ylabel( sprintf('Layer %i', ii(1)), 'Fontsize', 16)
+    title('Original')
+    ax(2) = subplot(3,3, (ii(2)-1) * 3 + 2);
+    pcolor( out.out.phase(:,:,ii(1) ) ); axis equal; axis tight; shading flat
+    title('Phase')
+    ax(3) = subplot(3,3, (ii(2)-1) * 3 + 3);
+    pcolor( out.out.ci(:,:,ii(1) ) ); axis equal; axis tight; shading flat; colorbar
+    title('Relative Confidence of the phase')
+    linkaxes( ax )
+end
+figure(gcf)
+##### SOURCE END #####
+-->
+<script>
+  // Prepend /assets/ location of images
+  $('.content img').each( function(d){$(this).attr('src', '/MIC-Modeling-Polymer-Composites/assets/' + $(this).attr('src') )})
+</script>
+
+<script>
+$( document ).ready(function() {
+  $('.content img').each( function(d,i){
+    $(this)
+      .wrap( '<a href="' + $(this).attr("src") +
+          '" data-title="'+$(this).attr("alt")+'" data-lightbox="post-img"></a>')
+    });
+});
+
+</script>
+
+</body></html>
