@@ -25,12 +25,13 @@ cropped2=cropped1(:);
 % data) of the best fit.
 
 figure
+% Fitting two peaks with Gaussian
 [FitResults,FitError]= peakfit([xx;yy],0,0,2,1);
 
 [r,c]=size(FitResults);
 
 Y=zeros(size(cropped1,1),size(cropped1,2),size(cropped1,3),r);
-
+% Finding Gaussian Likelihood Function values for all the elements of the matrix namely "cropped1"
 for i=1:r
     Y(1:size(cropped1,1),1:size(cropped1,2),1:size(cropped1,3),i) = FitResults(i,3)*exp(-((cropped1-FitResults(i,2)).^2/(2*(FitResults(i,4)).^2)));
 end
@@ -38,6 +39,7 @@ end
 [M,I]=max(Y,[],4);
 
 figure
+% Values equal to 2 will be shown as white and values equal to 1 will be shown as black
 imshow(I(:,:,1),[1 2])
 
 save 'SegSample1P2.mat' I
