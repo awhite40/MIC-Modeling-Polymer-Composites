@@ -1,3 +1,4 @@
+out
 %% Load in Data
 
 data.('name') = 'Cropped_fiber_matrix_S_400_400'
@@ -149,7 +150,15 @@ saveas( gcf,'./assets/peak-fit-test.png')
 data.('images').('peaks') = struct( 'src', '/assets/peak-fit-test.png', 'description', 'Peak fitting of the histogram generated from a 3-D volume.' )
 
 
-
+%% Using IM adjust
+normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) )
+adjust = @(A)reshape(  ... back to original shape
+                imadjust( ... adjust image
+                        reshape( ... flatten to 2-D image
+                                normalize(A), ... normalize from zero to one
+                                size(A,1), numel(A)./size(A,1))), ... Reshape to 2-D array
+                                size(A) ... Reshape back to original size
+                                );
 %% 
 return
 bnds = 6000
