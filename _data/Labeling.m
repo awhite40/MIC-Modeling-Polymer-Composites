@@ -8,7 +8,7 @@ mode(L(L~=0))
 
 %%
 
-[x,y,z] = ind2sub( size(L), find( L == 10 ));
+[x,y,z] = ind2sub( size(L), find( L == 15));
 plot3(x,y,z,'o')
 axis equal
 grid on

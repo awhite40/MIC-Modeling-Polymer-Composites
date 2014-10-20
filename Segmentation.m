@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 matrix=load('Scropped.mat');
+=======
+matrix=load('_data/Ncropped');
+>>>>>>> Stashed changes
 cropped=matrix.cropped;
 cropped1=double(cropped);
 cropped2=cropped1(:);
