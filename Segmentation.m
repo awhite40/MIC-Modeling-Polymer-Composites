@@ -1,4 +1,4 @@
-matrix=load('C:/Users/Lenovo/Documents/Gatech/OneDrive for Business/Gatech 4th Sem/Coursework/MI/Project/Dicom images/Scropped.mat');
+matrix=load('Scropped.mat');
 cropped=matrix.cropped;
 cropped1=double(cropped);
 cropped2=cropped1(:);
