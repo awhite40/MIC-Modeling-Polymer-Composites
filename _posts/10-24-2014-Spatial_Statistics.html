@@ -1,0 +1,21 @@
+---
+layout: post
+title: Analytics on Working Specimen
+
+
+src: Spatial_Stats_Originalmat
+src2: Spatial_Stats_Original2mat
+src3: Spatial_Stats_Segmentedmat
+src4: Spatial_Stats_Segmented2mat
+
+references: 
+- http://www.mathworks.com/matlabcentral/fileexchange/23611-peak-fitter
+---
+
+{% assign dat = site.data | map: {{page.src}} %}
+
+{% assign dat2 = site.data | map: {{page.src2}} %}
+
+{% assign dat3 = site.data | map: {{page.src3}} %}
+
+{% assign dat4 = site.data | map: {{page.src4}} %}
