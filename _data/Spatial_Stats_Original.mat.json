@@ -1,0 +1,6 @@
+{
+	"name": "Spatial_Stats_Original",
+	"local": "_data/Spatial_Stats_Original.mat",
+	"header": "_data/Spatial_Stats_Original.mat.json",
+	"source": "_data/Cropped_fiber_matrix_400_400.mat"
+}

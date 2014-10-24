@@ -1,0 +1,6 @@
+{
+	"name": "Spatial_Stats_Original2",
+	"local": "_data/Spatial_Stats_Original2.mat",
+	"header": "_data/Spatial_Stats_Original2.mat.json",
+	"source": "_data/Ncropped.mat"
+}
