@@ -2,5 +2,21 @@
 	"name": "Spatial_Stats_Segmented",
 	"local": "_data/Spatial_Stats_Segmented.mat",
 	"header": "_data/Spatial_Stats_Segmented.mat.json",
-	"source": "_data/SegSample1P2.mat"
+	"source": "_data/SegSample1P2.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Segmented_sample1_xy.png",
+				"description": "Spatial statistics on segmented image S in X-Y direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Segmented_sample1_xz.png",
+				"description": "Spatial statistics on segmented image S in X-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Segmented_sample1_yz.png",
+				"description": "Spatial statistics on segmented image S in Y-Z direction."
+			}
+		]
+	}
 }

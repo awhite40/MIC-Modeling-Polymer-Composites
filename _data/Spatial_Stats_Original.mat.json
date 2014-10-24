@@ -2,5 +2,21 @@
 	"name": "Spatial_Stats_Original",
 	"local": "_data/Spatial_Stats_Original.mat",
 	"header": "_data/Spatial_Stats_Original.mat.json",
-	"source": "_data/Cropped_fiber_matrix_400_400.mat"
+	"source": "_data/Cropped_fiber_matrix_400_400.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Original_sample1_xy.png",
+				"description": "Spatial statistics on original image S in X-Y direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Original_sample1_xz.png",
+				"description": "Spatial statistics on original image in X-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Original_sample1_yz.png",
+				"description": "Spatial statistics on original image in Y-Z direction."
+			}
+		]
+	}
 }
