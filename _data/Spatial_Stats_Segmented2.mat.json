@@ -1,0 +1,6 @@
+{
+	"name": "Spatial_Stats_Segmented2",
+	"local": "_data/Spatial_Stats_Segmented2.mat",
+	"header": "_data/Spatial_Stats_Segmented2.mat.json",
+	"source": "_data/SegSample2P2.mat"
+}
