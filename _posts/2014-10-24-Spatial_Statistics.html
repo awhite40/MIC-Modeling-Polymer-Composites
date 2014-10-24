@@ -30,3 +30,15 @@ src4: Spatial_Stats_Segmented2mat
 
 > {{img2.description}}
 {% endfor %}
+
+{% for img3 in dat3[0].images.stats %}
+![{{img3.description}}]({{site.baseurl}}/{{img3.src}})
+
+> {{img3.description}}
+{% endfor %}
+
+{% for img4 in dat4[0].images.stats %}
+![{{img4.description}}]({{site.baseurl}}/{{img4.src}})
+
+> {{img4.description}}
+{% endfor %}
