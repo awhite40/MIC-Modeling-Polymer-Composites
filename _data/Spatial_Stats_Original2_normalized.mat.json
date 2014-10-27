@@ -1,0 +1,38 @@
+{
+	"name": "Spatial_Stats_Original2_normalized",
+	"local": "_data/Spatial_Stats_Original2_normalized.mat",
+	"header": "_data/Spatial_Stats_Original2_normalized.mat.json",
+	"source": "_data/Ncropped.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Original_sample2_xy_normalized.png",
+				"description": "Spatial statistics on original image N in X-Y direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Original_sample2_xz_normalized.png",
+				"description": "Spatial statistics on original image N in X-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Original_sample2_yz_normalized.png",
+				"description": "Spatial statistics on original image N in Y-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_All.png",
+				"description": "Spatial statistics on Original and Segmented images"
+			},
+			{
+				"src": "/assets/Spacial_Stats_XY.png",
+				"description": "Spatial statistics on Original and Segmented images in XY"
+			},
+			{
+				"src": "/assets/Spacial_Stats_XZ.png",
+				"description": "Spatial statistics on Original and Segmented images in XZ"
+			},
+			{
+				"src": "/assets/Spacial_Stats_YX.png",
+				"description": "Spatial statistics on Original and Segmented images in YZ"
+			}
+		]
+	}
+}
