@@ -21,6 +21,16 @@ org2.stats_yz150 = SpatialStatsFFT( squeeze(org2.phase(150,:,:)));
 saveas(gcf, './assets/Spacial_Stats_Original_sample2_yz.png' );
 data.('images').('stats')(3) = struct( 'src', '/assets/Spacial_Stats_Original_sample2_yz.png', 'description', 'Spatial statistics on original image N in Y-Z direction.' );
 
+org2.phase_norm = normalize(cropped);
+org2.stats_norm_xy150 = SpatialStatsFFT( org2.phase_norm(:,:,150));
+saveas(gcf, './assets/Spacial_Stats_Original_sample2_xy_normalized.png' );
+data.('images').('stats')(4) = struct( 'src', '/assets/Spacial_Stats_Original_sample2_xy_normalized.png', 'description', 'Spatial statistics on original image N in X-Y direction.' );
+org2.stats_norm_xz150 = SpatialStatsFFT( squeeze(org2.phase_norm(:,150,:)));
+saveas(gcf, './assets/Spacial_Stats_Original_sample2_xz_normalized.png' );
+data.('images').('stats')(5) = struct( 'src', '/assets/Spacial_Stats_Original_sample2_xz_normalized.png', 'description', 'Spatial statistics on original image N in X-Z direction.' );
+org2.stats_norm_yz150 = SpatialStatsFFT( squeeze(org2.phase_norm(150,:,:)));
+saveas(gcf, './assets/Spacial_Stats_Original_sample2_yz_normalized.png' );
+data.('images').('stats')(6) = struct( 'src', '/assets/Spacial_Stats_Original_sample2_yz_normalized.png', 'description', 'Spatial statistics on original image N in Y-Z direction.' );
 
 s = savejson( [], data );
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
@@ -46,6 +56,16 @@ org.stats_yz150 = SpatialStatsFFT( squeeze(org.phase(150,:,:)));
 saveas(gcf, './assets/Spacial_Stats_Original_sample1_yz.png' );
 data.('images').('stats')(3) = struct( 'src', '/assets/Spacial_Stats_Original_sample1_yz.png', 'description', 'Spatial statistics on original image in Y-Z direction.' );
 
+org.phase_norm = normalize(cropped);
+org.stats_norm_xy150 = SpatialStatsFFT( org.phase_norm(:,:,150));
+saveas(gcf, './assets/Spacial_Stats_Original_sample1_xy_normalized.png' );
+data.('images').('stats')(4) = struct( 'src', '/assets/Spacial_Stats_Original_sample1_xy_normalized.png', 'description', 'Spatial statistics on original image S in X-Y direction.' );
+org.stats_norm_xz150 = SpatialStatsFFT( squeeze(org.phase_norm(:,150,:)));
+saveas(gcf, './assets/Spacial_Stats_Original_sample1_xz_normalized.png' );
+data.('images').('stats')(5) = struct( 'src', '/assets/Spacial_Stats_Original_sample1_xz_normalized.png', 'description', 'Spatial statistics on original image in X-Z direction.' );
+org.stats_norm_yz150 = SpatialStatsFFT( squeeze(org.phase_norm(150,:,:)));
+saveas(gcf, './assets/Spacial_Stats_Original_sample1_yz_normalized.png' );
+data.('images').('stats')(6) = struct( 'src', '/assets/Spacial_Stats_Original_sample1_yz_normalized.png', 'description', 'Spatial statistics on original image in Y-Z direction.' );
 s = savejson( [], data );
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
 
@@ -69,6 +89,18 @@ data.('images').('stats')(2) = struct( 'src', '/assets/Spacial_Stats_Segmented_s
 seg2.stats_yz150 = SpatialStatsFFT( squeeze(seg2.phase(150,:,:)));
 saveas(gcf, './assets/Spacial_Stats_Segmented_sample2_yz.png' );
 data.('images').('stats')(3) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample2_yz.png', 'description', 'Spatial statistics on segmented image N in Y-Z direction.' );
+
+seg2.phase_norm = normalize(cropped);
+seg2.stats_norm_xy150 = SpatialStatsFFT( seg2.phase_norm(:,:,150));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample2_xy_normalized.png' );
+data.('images').('stats')(4) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample2_xy_normalized.png', 'description', 'Spatial statistics on segmented image N in X-Y direction.' );
+seg2.stats_norm_xz150 = SpatialStatsFFT( squeeze(seg2.phase_norm(:,150,:)));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample2_xz_normalized.png' );
+data.('images').('stats')(5) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample2_xz_normalized.png', 'description', 'Spatial statistics on segmented image N in X-Z direction.' );
+seg2.stats_norm_yz150 = SpatialStatsFFT( squeeze(seg2.phase_norm(150,:,:)));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample2_yz_normalized.png' );
+data.('images').('stats')(6) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample2_yz_normalized.png', 'description', 'Spatial statistics on segmented image N in Y-Z direction.' );
+
 
 
 s = savejson( [], data );
@@ -94,6 +126,18 @@ data.('images').('stats')(2) = struct( 'src', '/assets/Spacial_Stats_Segmented_s
 seg.stats_yz150 = SpatialStatsFFT( squeeze(seg.phase(150,:,:)));
 saveas(gcf, './assets/Spacial_Stats_Segmented_sample1_yz.png' );
 data.('images').('stats')(3) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample1_yz.png', 'description', 'Spatial statistics on segmented image S in Y-Z direction.' );
+
+seg.phase_norm = normalize(cropped);
+seg.stats_norm_xy150 = SpatialStatsFFT( seg.phase_norm(:,:,150));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample1_xy_normalized.png' );
+data.('images').('stats')(4) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample1_xy_normalized.png', 'description', 'Spatial statistics on segmented image S in X-Y direction.' );
+seg.stats_norm_xz150 = SpatialStatsFFT( squeeze(seg.phase_norm(:,150,:)));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample1_xz_normalized.png' );
+data.('images').('stats')(5) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample1_xz_normalized.png', 'description', 'Spatial statistics on segmented image S in X-Z direction.' );
+seg.stats_norm_yz150 = SpatialStatsFFT( squeeze(seg.phase_norm(150,:,:)));
+saveas(gcf, './assets/Spacial_Stats_Segmented_sample1_yz_normalized.png' );
+data.('images').('stats')(6) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample1_yz_normalized.png', 'description', 'Spatial statistics on segmented image S in Y-Z direction.' );
+
 
 
 

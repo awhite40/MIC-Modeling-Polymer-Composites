@@ -6,16 +6,16 @@
 	"images": {
 		"stats": [
 			{
-				"src": "/assets/Spacial_Stats_Segmented_sample1_xy.png",
-				"description": "Spatial statistics on segmented image S in X-Y direction."
+				"src": "/assets/Spacial_Stats_Original_sample1_xy.png",
+				"description": "Spatial statistics on original image S in X-Y direction."
 			},
 			{
-				"src": "/assets/Spacial_Stats_Segmented_sample1_xz.png",
-				"description": "Spatial statistics on segmented image S in X-Z direction."
+				"src": "/assets/Spacial_Stats_Original_sample1_xz.png",
+				"description": "Spatial statistics on original image in X-Z direction."
 			},
 			{
-				"src": "/assets/Spacial_Stats_Segmented_sample1_yz.png",
-				"description": "Spatial statistics on segmented image S in Y-Z direction."
+				"src": "/assets/Spacial_Stats_Original_sample1_yz.png",
+				"description": "Spatial statistics on original image in Y-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_xy_normalized.png",
