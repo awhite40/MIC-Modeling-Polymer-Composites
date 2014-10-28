@@ -1,3 +1,45 @@
 ---
+layout: post
+title: Normalized Spatial Statistics
+
+
+src: Spatial_Stats_Originalmat
+src2: Spatial_Stats_Original2mat
+src3: Spatial_Stats_Segmentedmat
+src4: Spatial_Stats_Segmented2mat
 
 ---
+
+{% assign dat = site.data | map: {{page.src}} %}
+
+{% assign dat2 = site.data | map: {{page.src2}} %}
+
+{% assign dat3 = site.data | map: {{page.src3}} %}
+
+{% assign dat4 = site.data | map: {{page.src4}} %}
+
+
+{% for img in dat[3].images.stats %}
+![{{img.description}}]({{site.baseurl}}/{{img.src}})
+
+> {{img.description}}
+{% endfor %}
+
+{% for img2 in dat2[3].images.stats %}
+![{{img2.description}}]({{site.baseurl}}/{{img2.src}})
+
+> {{img2.description}}
+{% endfor %}
+
+{% for img3 in dat3[3].images.stats %}
+![{{img3.description}}]({{site.baseurl}}/{{img3.src}})
+
+> {{img3.description}}
+{% endfor %}
+
+{% for img4 in dat4[3].images.stats %}
+![{{img4.description}}]({{site.baseurl}}/{{img4.src}})
+
+> {{img4.description}}
+{% endfor %}
+
