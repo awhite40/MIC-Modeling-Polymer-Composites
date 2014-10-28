@@ -19,7 +19,7 @@ src4: Spatial_Stats_Segmented2mat
 {% assign dat4 = site.data | map: {{page.src4}} %}
 
 
-{% for img in dat[0].images.stats <3 %}
+{% for img in dat[0].images.stats  %}
 ![{{img.description}}]({{site.baseurl}}/{{img.src}})
 
 > {{img.description}}
