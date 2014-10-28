@@ -19,25 +19,25 @@ src4: Spatial_Stats_Segmented2mat
 {% assign dat4 = site.data | map: {{page.src4}} %}
 
 
-{% for img in dat[3].images.stats %}
+{% for img in dat[0].images.stats %}
 ![{{img.description}}]({{site.baseurl}}/{{img.src}})
 
 > {{img.description}}
 {% endfor %}
 
-{% for img2 in dat2[3].images.stats %}
+{% for img2 in dat2[0].images.stats %}
 ![{{img2.description}}]({{site.baseurl}}/{{img2.src}})
 
 > {{img2.description}}
 {% endfor %}
 
-{% for img3 in dat3[3].images.stats %}
+{% for img3 in dat3[0].images.stats %}
 ![{{img3.description}}]({{site.baseurl}}/{{img3.src}})
 
 > {{img3.description}}
 {% endfor %}
 
-{% for img4 in dat4[3].images.stats %}
+{% for img4 in dat4[0].images.stats %}
 ![{{img4.description}}]({{site.baseurl}}/{{img4.src}})
 
 > {{img4.description}}
