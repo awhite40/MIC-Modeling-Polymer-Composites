@@ -15,15 +15,15 @@
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample2_yz.png",
-				"description": "Spatial statistics on original image N in Y-Z direction."
+				"description": "Spatial statistics on normalized original image N in Y-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample2_xy_normalized.png",
-				"description": "Spatial statistics on original image N in X-Y direction."
+				"description": "Spatial statistics on normalized original image N in X-Y direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample2_xz_normalized.png",
-				"description": "Spatial statistics on original image N in X-Z direction."
+				"description": "Spatial statistics on normalized original image N in X-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample2_yz_normalized.png",
