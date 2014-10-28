@@ -19,15 +19,15 @@
 			},
 			{
 				"src": "/assets/Spacial_Stats_Segmented_sample1_xy_normalized.png",
-				"description": "Spatial statistics on segmented image S in X-Y direction."
+				"description": "Spatial statistics on normalized segmented image S in X-Y direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Segmented_sample1_xz_normalized.png",
-				"description": "Spatial statistics on segmented image S in X-Z direction."
+				"description": "Spatial statistics on normalized segmented image S in X-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Segmented_sample1_yz_normalized.png",
-				"description": "Spatial statistics on segmented image S in Y-Z direction."
+				"description": "Spatial statistics on normalized segmented image S in Y-Z direction."
 			}
 		]
 	}
