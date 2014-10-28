@@ -11,11 +11,11 @@
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_xz.png",
-				"description": "Spatial statistics on original image in X-Z direction."
+				"description": "Spatial statistics on original image S in X-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_yz.png",
-				"description": "Spatial statistics on original image in Y-Z direction."
+				"description": "Spatial statistics on original image S in Y-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_xy_normalized.png",
@@ -23,11 +23,11 @@
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_xz_normalized.png",
-				"description": "Spatial statistics on normalized original image in X-Z direction."
+				"description": "Spatial statistics on normalized original image S in X-Z direction."
 			},
 			{
 				"src": "/assets/Spacial_Stats_Original_sample1_yz_normalized.png",
-				"description": "Spatial statistics on normalized original image in Y-Z direction."
+				"description": "Spatial statistics on normalized original image S in Y-Z direction."
 			}
 		]
 	}
