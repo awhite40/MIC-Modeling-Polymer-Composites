@@ -1,5 +1,5 @@
 
-
+normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) )
 %% Spacial Stats on Original sample 2
 
 data.('name') = 'Spatial_Stats_Original2_normalized';
@@ -10,7 +10,7 @@ data.('source') = '_data/Ncropped.mat';
 
 load( data.source);
 cropped = double( Ncropped );
-org2.phase = cropped;
+org2.phase = normalize(cropped);
 org2.stats_xy150 = SpatialStatsFFT( org2.phase(:,:,150));
 saveas(gcf, './assets/Spacial_Stats_Original_sample2_xy_normalized.png' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Original_sample2_xy_normalized.png', 'description', 'Spatial statistics on original image N in X-Y direction.' );
@@ -35,7 +35,7 @@ data.('source') = '_data/Cropped_fiber_matrix_400_400.mat';
 
 load( data.source);
 cropped = double( Scropped );
-org.phase = cropped;
+org.phase = normalize(cropped);
 org.stats_xy150 = SpatialStatsFFT( org.phase(:,:,150));
 saveas(gcf, './assets/Spacial_Stats_Original_sample1_xy_normalized.png' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Original_sample1_xy_normalized.png', 'description', 'Spatial statistics on original image S in X-Y direction.' );
@@ -59,7 +59,8 @@ data.('source') = '_data/SegSample2P2.mat';
 
 load( data.source);
 cropped = double( I);
-seg2.phase = cropped;
+seg2.phase = normalize(cropped);
+seg2.stats = SpatialStatsFFT( seg2.phase);
 seg2.stats_xy150 = SpatialStatsFFT( seg2.phase(:,:,150));
 saveas(gcf, './assets/Spacial_Stats_Segmented_sample2_xy_normalized.png' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample2_xy_normalized.png', 'description', 'Spatial statistics on segmented image N in X-Y direction.' );
@@ -84,7 +85,8 @@ data.('source') = '_data/SegSample1P2.mat';
 
 load( data.source);
 cropped = double( I);
-seg.phase = cropped;
+seg.phase = normalize(cropped);
+seg.stats = SpatialStatsFFT( seg.phase);
 seg.stats_xy150 = SpatialStatsFFT( seg.phase(:,:,150));
 saveas(gcf, './assets/Spacial_Stats_Segmented_sample1_xy_normalized.png' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Segmented_sample1_xy_normalized.png', 'description', 'Spatial statistics on segmented image S in X-Y direction.' );
