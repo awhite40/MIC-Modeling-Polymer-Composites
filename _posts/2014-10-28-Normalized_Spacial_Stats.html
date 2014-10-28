@@ -3,10 +3,10 @@ layout: post
 title: Normalized Spatial Statistics
 
 
-src: Spatial_Stats_Originalmat
-src2: Spatial_Stats_Original2mat
-src3: Spatial_Stats_Segmentedmat
-src4: Spatial_Stats_Segmented2mat
+src: Spatial_Stats_Original_normalizedmat
+src2: Spatial_Stats_Original2_normalizedmat
+src3: Spatial_Stats_Segmented_normalizedmat
+src4: Spatial_Stats_Segmented2_normalizedmat
 
 ---
 
@@ -19,17 +19,17 @@ src4: Spatial_Stats_Segmented2mat
 {% assign dat4 = site.data | map: {{page.src4}} %}
 
 
-![{{dat[0].images.stats[3].description}}]({{site.baseurl}}/{{dat[0].images.stats[3].src}})
+![{{dat[0].images.stats[0].description}}]({{site.baseurl}}/{{dat[0].images.stats[0].src}})
 
-> {{dat[0].images.stats[3].description}}
+> {{dat[0].images.stats[0].description}}
 
-![{{dat[0].images.stats[4].description}}]({{site.baseurl}}/{{dat[0].images.stats[4].src}})
+![{{dat[0].images.stats[1].description}}]({{site.baseurl}}/{{dat[0].images.stats[1].src}})
 
-> {{dat[0].images.stats[4].description}}
+> {{dat[0].images.stats[1].description}}
 
-![{{dat[0].images.stats[5].description}}]({{site.baseurl}}/{{dat[0].images.stats[5].src}})
+![{{dat[0].images.stats[2].description}}]({{site.baseurl}}/{{dat[0].images.stats[2].src}})
 
-> {{dat[0].images.stats[5].description}}
+> {{dat[0].images.stats[2].description}}
 
 
 
