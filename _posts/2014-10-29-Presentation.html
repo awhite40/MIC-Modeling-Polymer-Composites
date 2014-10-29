@@ -16,6 +16,8 @@ src4: Spatial_Stats_Segmented2_normalizedmat
 
 {% assign dat4 = site.data | map: {{page.src4}} %}
 
+## 2D Statistics
+
 ![{{dat[0].images.stats[0].description}}]({{site.baseurl}}/{{dat[0].images.stats[0].src}})
 
 > {{dat[0].images.stats[0].description}}
@@ -33,3 +35,11 @@ src4: Spatial_Stats_Segmented2_normalizedmat
 
 > {{dat4[0].images.stats[0].description}}
 
+
+## Next Steps
+
+* Determine characteristics of physical samples
+  * Fiber orientation
+  * Fiber lengths
+  * fiber locations and clustering
+* Generate simulated microstructures extrapolated from physical samples
