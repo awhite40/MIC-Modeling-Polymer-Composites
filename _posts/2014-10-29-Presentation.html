@@ -1,0 +1,34 @@
+---
+layout: post
+title: Presentation 10/29
+
+src: Spatial_Stats_Original2mat
+src2: Spatial_Stats_Original2_normalizedmat
+src3: Spatial_Stats_Segmented2mat
+src4: Spatial_Stats_Segmented2_normalizedmat
+---
+
+{% assign dat = site.data | map: {{page.src}} %}
+
+{% assign dat2 = site.data | map: {{page.src2}} %}
+
+{% assign dat3 = site.data | map: {{page.src3}} %}
+
+{% assign dat4 = site.data | map: {{page.src4}} %}
+
+![{{dat[0].images.stats[0].description}}]({{site.baseurl}}/{{dat[0].images.stats[0].src}})
+
+> {{dat[0].images.stats[0].description}}
+
+![{{dat2[0].images.stats[0].description}}]({{site.baseurl}}/{{dat2[0].images.stats[0].src}})
+
+> {{dat2[0].images.stats[0].description}}
+
+![{{dat3[0].images.stats[0].description}}]({{site.baseurl}}/{{dat3[0].images.stats[0].src}})
+
+> {{dat3[0].images.stats[0].description}}
+
+![{{dat4[0].images.stats[0].description}}]({{site.baseurl}}/{{dat4[0].images.stats[0].src}})
+
+> {{dat4[0].images.stats[0].description}}
+
