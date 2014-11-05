@@ -77,8 +77,8 @@ shift = (I-I_s3).*I;
 figure
 pcolor( shift(:,:,10) ); axis equal; axis tight; shading flat
 %% Labeling 
-L = bwlabeln(I==2);
-
+L = bwlabeln(I);
+max(L(:))
 %%
 L2 = bwlabeln(I2,6);
 %%
@@ -125,7 +125,7 @@ end
 through
 %% Segmented
 figure
-[x1,y1,z1] = ind2sub( size(L), find( L == 0));
+[x1,y1,z1] = ind2sub( size(L), find( L == m1));
 plot3(x,y,z,'o')
 axis equal
 grid on
