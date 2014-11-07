@@ -1,37 +1,21 @@
 clear
 clc
 
-%% Setting undefined parameters if necessary
-
-% if nargin <2
-H = 2; % local state
-% end
-
-% if nargin <3
-n = 2;  % volume fraction
-% end
-% if nargin <4
-r = 1; % radial component of the fibers
-% end
-% if nargin <5
-Iso1 = 30; % elongation in 1 dir. (pixel)
-% end
-% if nargin <6
-Iso2 = 1;
-% end
 %% Input - Debugging
 
 x=11; y=11; z=11;
 D = rand(x,y,z);
 
 H = 2; % Number of Phases
-n = 3; % Control volume fraction of phases
+% Control volume fraction of phases
+fr = 0.15;
+n = log(fr)/log(1/2);
 r = 2; % radial Grain size
 Iso1 = 3; % Change in Grain size (stretch in 1-Dir)
 Iso2 = 5;
 
 % P = MS(D,H,n,r,Iso1,Iso2)
-% MS( A,H,n,r,Iso1,Iso2)
+%MS( A,H,n,r,Iso1,Iso2)
 %% Matrix and Phase volume fraction check
 
 Dim = size(D);
@@ -64,14 +48,13 @@ end
 P = zeros(1,H);%Percentage of volume fractions
 
 for ii = 1:H-1
-    P(ii+1)=(1/H)^(n^(sqrt(ii)))
+    P(ii+1)=(1/H)^(n^(sqrt(ii)));
 end
 
 SumP = cumsum(P);
 Ptot = SumP(H);
 P(1)=1-Ptot;
-Pval = [0,cumsum(P)];
-
+Pval = [0,cumsum(P)]
 %% Filter and convulution
 
 [X,Y,Z] = meshgrid(-ceil(fDim(2)/2):ceil(fDim(2)/2),-ceil(fDim(1)/2):ceil(fDim(1)/2),-ceil(fDim(3)/2):ceil(fDim(3)/2));
@@ -113,8 +96,10 @@ DMStemp = zeros(Dim);
 %To DO: make sure the voxel originally set equal to 1.
 for ll = 1:H; %
     temp = (DMS3(:,:,:) >= Pval(ll)) &  (Pval(ll+1) >= DMS3(:,:,:) );
-    DMStemp = DMStemp + temp*(ll+1);
+    DMStemp = DMStemp + temp*(ll+1)
 end
 
-DMS = DMStemp - ones(Dim);
-
+DMS = DMStemp - ones(Dim)
+[i,j,k] = size(DMS);
+tempDMS = DMS-ones(Dim);
+frac = sum(tempDMS(:))/(i*j*k)
