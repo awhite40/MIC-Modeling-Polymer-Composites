@@ -1,9 +1,8 @@
 clear
 clc
-
 %% Input - Debugging
 
-x=11; y=11; z=11;
+x=501; y=501; z=501;
 D = rand(x,y,z);
 
 H = 2; % Number of Phases
@@ -63,7 +62,7 @@ f = sqrt(X.^2+Y.^2+Z.^2);
 
 %% Filter 1
 cf = zeros(Dim);
-cf(1,1:size(f,2),1) = f(1,:,1);
+cf(1,1:size(f,2),1) = 1;
 
 %% Filter 2
 % cf = zeros(Dim);
@@ -96,10 +95,10 @@ DMStemp = zeros(Dim);
 %To DO: make sure the voxel originally set equal to 1.
 for ll = 1:H; %
     temp = (DMS3(:,:,:) >= Pval(ll)) &  (Pval(ll+1) >= DMS3(:,:,:) );
-    DMStemp = DMStemp + temp*(ll+1)
+    DMStemp = DMStemp + temp*(ll+1);
 end
 
-DMS = DMStemp - ones(Dim)
+DMS = DMStemp - 2*ones(Dim);
 [i,j,k] = size(DMS);
-tempDMS = DMS-ones(Dim);
-frac = sum(tempDMS(:))/(i*j*k)
+
+frac = sum(DMS(:))/(i*j*k)
