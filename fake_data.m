@@ -2,7 +2,8 @@ close all
 clear
 clc
 
-f = 3 ;
+f = 1 ;
+slope = 1;
 
 % Creating a fake microstructure in 2D
 if f==1
@@ -15,7 +16,7 @@ if f==1
     pcolor(fake);
     colorbar;
     [x, y] = size(fake);
-    new = zeros(x,y);
+    new = NaN(x,y);
 
 % Fake microstructure 2
 elseif f==2
@@ -47,30 +48,30 @@ elseif f==2
     colorbar;
 
     [x, y] = size(fake);
-    new = zeros(x,y);
+    new = NaN(x,y);
 
 % Fake microstructure 3
 elseif f==3
     normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
     fake = zeros(300,300,'uint8');
     x = linspace(30,180,10000);  %# x values at a higher resolution
-    y = 30+sqrt(2)*x;
+    y = 30+slope*x;
     index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
     fake(index) = 255; 
     x = linspace(30,180,10000);  %# x values at a higher resolution
-    y = 31+sqrt(2)*x;
+    y = 31+slope*x;
     index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
     fake(index) = 255;%# Set the values to the max value of 255 for uint8
 
 
     x = linspace(30,180,10000);  %# x values at a higher resolution
-    y = 29+sqrt(2)*x;
+    y = 29+slope*x;
     index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
     fake(index) = 255;
-    y = 28+sqrt(2)*x;
+    y = 28+slope*x;
     index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
     fake(index) = 255;
-    y = 31+sqrt(2)*x;
+    y = 31+slope*x;
     index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
     fake(index) = 255;
     fake = double(normalize(fake));
@@ -80,11 +81,11 @@ elseif f==3
     fake(103:105,48:54) =1;
     fake(98:100,48:54) = 1;
 
-    imshow(fake);
+    pcolor(fake);
     colorbar;
 
     [x, y] = size(fake);
-    new = zeros(x,y);
+    new = NaN(x,y); 
 end
 
 
@@ -95,13 +96,16 @@ end
 
 % Run smaller window over image
 wind = 5; % Window size
-i =wind;
+i =wind;%108;
 n= 1;
-while i <= 110
-    j=wind;
-    while j<=10
+while i <= x%118
+    j=wind;%90;
+    while j<=y%100
         % Determine the white region in the window
         region = fake(i-wind+1:i,j-wind+1:j);
+%         figure
+%         imshow(region);
+%         colorbar;
         % Determine the orientation and centroid of the white section in the window
         % assuming the possibility of unconnected sections in window
         % misses the edges without some sort of periodicity some extra
@@ -125,17 +129,14 @@ while i <= 110
             rem.theta(n,:) = atan(rem.vec(n,2)/rem.vec(n,1));
             
             % if has an orientation add it to the seperated matrix
-            %new(round(cent(1)),round(cent(2))) = 180*atan(rem.vec(n,1)/rem.vec(n,2))/pi();
-            new(row,col) = 180*atan(rem.vec(n,1)/rem.vec(n,2))/pi();
+            g=1;
+            while g<=size(row)
+                new(row(g),col(g)) = 180*atan(rem.vec(n,1)/rem.vec(n,2))/pi();
+                g=g+1;
+            end
             lb =lb+1;
             n= n+1;
         end
-            
-            
-            
-            
-       
-        
         j=j+1;
     end
     i=i+1;
@@ -143,6 +144,7 @@ end
 figure
 image((new));
 colorbar
+
 
 
 
