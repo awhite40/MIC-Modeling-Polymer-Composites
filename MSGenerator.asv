@@ -2,7 +2,7 @@ clear
 clc
 %% Input - Debugging
 
-x=31; y=31; z=31;
+x=11; y=501; z=501;
 D = rand(x,y,z);
 
 H = 2; % Number of Phases
@@ -76,18 +76,18 @@ cf(1,1:size(f,2),1) = 1;
 % cf(1:dimf(1),1:dimf(2),1:dimf(3)) = tmp1;
 
 %% Filter 3 
-slope1 = 1;
+slope1 = sqrt(2);
 slope2 = 1;
 normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
 
 fake = zeros(Dim);
-x = linspace(1,11,1000);  %# x values at a higher resolution
+x = linspace(30,40,1000);  %# x values at a higher resolution
 y = slope1*x;
-z = slope2*y;
-index = sub2ind(size(fake),round(y),round(x),round(z));  %# Indices of the line
+z = slope2*y
+index = sub2ind(size(fake),round(y),round(x));  %# Indices of the line
 fake(index) = 255;
 cf = normalize(fake);
-%sliceomatic(cf)
+sliceomatic(cf)
 
 
 %%
