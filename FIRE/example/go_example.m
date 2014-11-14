@@ -25,7 +25,9 @@
     
 %load image
     fprintf('loading image\n');
-    im3 = loadim3('./images',p.Nimages,'s5part1__cmle','.tif',2,p.yred,p.xred);
+    %im3 = loadim3('./images',p.Nimages,'s5part1__cmle','.tif',2,p.yred,p.xred);
+   load _data/SegSample2P2.mat
+   im3 = I;
 
 %run main FIRE code
     data = fire(p,im3,1);  %uses im3 and p as inputs and outputs everything listed below

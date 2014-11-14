@@ -2,7 +2,7 @@ close all
 clear
 clc
 
-f = 1 ;
+f =4 ;
 slope = 1;
 
 % Creating a fake microstructure in 2D
@@ -13,10 +13,8 @@ if f==1
     fake(1:20,20:22) = 1;
     fake(23:25,18:24) =1;
     fake(18:20,18:24) = 1;
-    pcolor(fake);
+    imshow(fake);
     colorbar;
-    [x, y] = size(fake);
-    new = NaN(x,y);
 
 % Fake microstructure 2
 elseif f==2
@@ -47,8 +45,7 @@ elseif f==2
     imshow(fake);
     colorbar;
 
-    [x, y] = size(fake);
-    new = NaN(x,y);
+   
 
 % Fake microstructure 3
 elseif f==3
@@ -81,21 +78,25 @@ elseif f==3
     fake(103:105,48:54) =1;
     fake(98:100,48:54) = 1;
 
-    pcolor(fake);
+    imshow(fake);
     colorbar;
 
-    [x, y] = size(fake);
-    new = NaN(x,y); 
+     
+elseif f==4
+    normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
+    load _data/SegSample2P2.mat
+    fake = normalize(I(:,:,100));
+    imshow(fake);
 end
 
 
 
 
 %% Isolating straight sections
-
-
 % Run smaller window over image
-wind = 5; % Window size
+[x, y] = size(fake);
+new = NaN(x,y);
+wind = 30; % Window size
 i =wind;%108;
 n= 1;
 while i <= x%118
@@ -119,7 +120,15 @@ while i <= x%118
             col = col + j-wind;
             cent(1) = sum(row)/sum(sum(reg));
             cent(2) = sum(col)/sum(sum(reg));
-            
+%             [V,D] = eigs(double(reg),3);
+%             if V(:,1)~= V(:,2) & V(:,1)~= -V(:,2) 
+%                 or = V(1:2,1);
+%                 g=1;
+%                 while g<=size(row)
+%                 new2(row(g),col(g)) = norm(V(:,1));
+%                 g=g+1;
+%                 end
+%             end
             [row2, col2] = find(reg(:,floor(cent(2))-j+wind));
             dX = max(row2) - min(row2);
             [row2, col2] = find(reg(floor(cent(1))- i+wind,:));
@@ -145,7 +154,48 @@ figure
 image((new));
 colorbar
 
+%%
+range =10;
+new3 = NaN(size(new));
+sz = range;
+while sz <=max(new(:))+10
+    
+    new2 = new>=sz-range & new<=sz;
+    bw = bwlabel(new2);
+    b=1;
+    while b<= max(bw(:))
+    %     figure
+    %     imshow(bw==b);
+        if sum(sum(bw==b)) > 10
+           [rows, cols] =find(bw==b);
+           g=1;
+           size(rows);
+           while g<=max(size(rows))
+           new3(rows(g),cols(g)) = 1;
+           g=g+1;
+           end
+        end
 
+        b=b+1;
+    end
+    sz = sz +range;
+end
 
-
+figure
+imshow(new3);
+% figure
+% imshow(new>=0 & new <=20);
+% colorbar
+% 
+% figure
+% imshow(new>20 & new <=40);
+% 
+% figure
+% imshow(new>=40 & new <=60);
+% 
+% figure
+% imshow(new>=60 & new <=80);
+% 
+% figure
+% imshow(new >80);
 
