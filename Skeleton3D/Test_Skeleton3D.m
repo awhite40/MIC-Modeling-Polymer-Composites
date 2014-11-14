@@ -4,18 +4,18 @@ close all;
 load('segSample2P2.mat')
 normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
 I2 = normalize(I);
-test = I2(1:5,1:5,1:5);
+test = logical(I2(1:5,1:5,1:5));
 
 
-skel = Skeleton3D(I);
+skel = Skeleton3D(test);
 
 figure();
 col=[.7 .7 .8];
-hiso = patch(isosurface(testvol,0),'FaceColor',col,'EdgeColor','none');
-hiso2 = patch(isocaps(testvol,0),'FaceColor',col,'EdgeColor','none');
+hiso = patch(isosurface(test,0),'FaceColor',col,'EdgeColor','none');
+hiso2 = patch(isocaps(test,0),'FaceColor',col,'EdgeColor','none');
 axis equal;axis off;
 lighting phong;
-isonormals(testvol,hiso);
+isonormals(test,hiso);
 alpha(0.5);
 set(gca,'DataAspectRatio',[1 1 1])
 camlight;
