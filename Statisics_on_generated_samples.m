@@ -12,6 +12,7 @@ load( data.source);
 cropped = double( ElongFib );
 Elong.phase =normalize(cropped);
 Elong.stats = SpatialStatsFFT(Elong.phase);
+Elong.cstats = SpatialStatsFFT(Elong.phase==1,Elong.phase==0);
 Elong.stats_xy10 = SpatialStatsFFT( Elong.phase(:,:,10));
 saveas(gcf, './assets/Spacial_Stats_Elong_xy.jpg' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Elong_xy.jpg', 'description', 'Spatial statistics on generated microstructure with elongated fibers in the XY plane.' );
@@ -35,6 +36,7 @@ load( data.source);
 cropped = double( DiagFib );
 Diag.phase =normalize(cropped);
 Diag.stats = SpatialStatsFFT(Diag.phase);
+Diag.cstats = SpatialStatsFFT(Diag.phase==1,Diag.phase==0);
 Diag.stats_xy10 = SpatialStatsFFT( Diag.phase(:,:,10));
 saveas(gcf, './assets/Spacial_Stats_Diag_xy.jpg' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Diag_xy.jpg', 'description', 'Spatial statistics on Generated microstructures with diagonal fibers X-Y direction.' );
@@ -60,6 +62,7 @@ load( data.source);
 cropped = double( RandFib );
 Rand.phase =normalize(cropped);
 Rand.stats = SpatialStatsFFT(Rand.phase);
+Rand.cstats = SpatialStatsFFT(Rand.phase==1,Rand.phase==0);
 Rand.stats_xy10 = SpatialStatsFFT( Rand.phase(:,:,10));
 saveas(gcf, './assets/Spacial_Stats_Rand_xy.jpg' );
 data.('images').('stats')(1) = struct( 'src', '/assets/Spacial_Stats_Rand_xy.jpg', 'description', 'Spatial statistics on Generated microstructures with Random fibers X-Y direction.' );
@@ -71,3 +74,18 @@ saveas(gcf, './assets/Spacial_Stats_Rand_yz.jpg' );
 data.('images').('stats')(3) = struct( 'src', '/assets/Spacial_Stats_Rand_yz.jpg', 'description', 'Spatial statistics on Generated microstructures with random fibers in Y-Z direction.' );
 s = savejson( [], data );
 fo = fopen( data.header, 'w'); fwrite( fo, s ); fclose(fo);
+
+%%
+close all
+hsp = surf(linspace(0,21,21),linspace(0,21,21),...
+      zeros(21) +15);
+rotate(hsp,[-1,0,0],-45)
+xd = get(hsp,'XData');
+yd = get(hsp,'YData');
+zd = get(hsp,'ZData');
+
+slice(fftshift(Diag.cstats),xd,yd,zd)
+hold on
+slice(fftshift(Diag.cstats),11,11,1)
+colorbar
+hold off
