@@ -1,0 +1,22 @@
+{
+	"name": "Generated microstructure with diagonal fibers",
+	"local": "_data/DiagFib.mat",
+	"header": "_data/DiagFib.mat.json",
+	"source": "_data/DiagFib.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Diag_xy.jpg",
+				"description": "Spatial statistics on Generated microstructures with diagonal fibers X-Y direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Diag_xz.jpg",
+				"description": "Spatial statistics on Generated microstructures with diagonal fibers in X-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Diag_yz.jpg",
+				"description": "Spatial statistics on Generated microstructures with diagonal fibers in Y-Z direction."
+			}
+		]
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"name": "Generated microstructure with elongated fibers",
+	"local": "_data/ElongFib.mat",
+	"header": "_data/ElongFib.mat.json",
+	"source": "_data/ElongFib.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Elong_xy.jpg",
+				"description": "Spatial statistics on generated microstructure with elongated fibers in the XY plane."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Elong_xy.jpg",
+				"description": "Spatial statistics on generated microstructure with elongated fibers in the XZ plane."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Elong_xy.jpg",
+				"description": "Spatial statistics on generated microstructure with elongated fibers in the YZ plane."
+			}
+		]
+	}
+}

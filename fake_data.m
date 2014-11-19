@@ -2,8 +2,8 @@ close all
 clear
 clc
 
-f =4 ;
-slope = 1;
+f =3 ;
+slope =sqrt(2);
 
 % Creating a fake microstructure in 2D
 if f==1
@@ -131,16 +131,20 @@ while i <= x%118
 %             end
             [row2, col2] = find(reg(:,floor(cent(2))-j+wind));
             dX = max(row2) - min(row2);
+            X = reg(:,floor(cent(2)-j +wind));
+            sdx = std(X);
+            sdy = std(reg(floor(cent(1)-i + wind),:));
             [row2, col2] = find(reg(floor(cent(1))- i+wind,:));
             dY = max(col2) - min(col2);
-            rem.vec(n,:) = [dX, dY]/(sqrt(dX^2+dY^2));
+            rem.vec(n,:) = [sdx, sdy]/(sqrt(sdx^2+sdy^2));
             rem.centroid(n,:) = cent;
             rem.theta(n,:) = atan(rem.vec(n,2)/rem.vec(n,1));
-            
+            e = sqrt(1-((min(sdx,sdy))^2/(max(sdx,sdy)^2)));
             % if has an orientation add it to the seperated matrix
             g=1;
             while g<=size(row)
-                new(row(g),col(g)) = 180*atan(rem.vec(n,1)/rem.vec(n,2))/pi();
+                new(row(g),col(g)) = 180*atan(rem.vec(n,2)/rem.vec(n,1))/pi();
+                new2(row(g),col(g)) = e;
                 g=g+1;
             end
             lb =lb+1;
@@ -150,8 +154,15 @@ while i <= x%118
     end
     i=i+1;
 end
+%%
 figure
-image((new));
+pcolor((new));
+colorbar
+new3 = new2.*255;
+figure
+pcolor((new2).*255);
+grid off
+axis off
 colorbar
 
 %%

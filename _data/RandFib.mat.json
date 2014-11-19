@@ -1,0 +1,22 @@
+{
+	"name": "Generated microstructure with random fibers",
+	"local": "_data/RandFib.mat",
+	"header": "_data/RandFib.mat.json",
+	"source": "_data/RandFib.mat",
+	"images": {
+		"stats": [
+			{
+				"src": "/assets/Spacial_Stats_Rand_xy.jpg",
+				"description": "Spatial statistics on Generated microstructures with Random fibers X-Y direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Rand_xz.jpg",
+				"description": "Spatial statistics on Generated microstructures with random fibers in X-Z direction."
+			},
+			{
+				"src": "/assets/Spacial_Stats_Rand_yz.jpg",
+				"description": "Spatial statistics on Generated microstructures with random fibers in Y-Z direction."
+			}
+		]
+	}
+}
