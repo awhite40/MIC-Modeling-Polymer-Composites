@@ -1,7 +1,5 @@
+
 [rawdata] = importdata('tst.dat',' ',1e8);
-%FID = fopen('tst.dat');
-%formatspec = '%f %f %f %f %f %f';
-%fm2 = '%s %s %s %s %s %s %s %s';
 n = 21;
 st = rawdata(268,1);
 st2 = rawdata(74373,1);
@@ -31,6 +29,15 @@ while line <=size(rawdata,1)
     
 end
 %%
-chars = str2num(E(1,:))
-E_star(1,:) = mean(char(E(1:8,:)));
-
+E1 = str2double(E);
+t=1;
+E_star = zeros(size(E,1)/8,size(E,2)-3);
+S1 = str2double(S);
+S_star = zeros(size(S,1)/8,size(S,2)-1);
+for ind =1:8:size(E,1)
+    E_star(t,:) = ((E1(ind,4:9))+(E1(ind+1,4:9))+(E1(ind+2,4:9))+(E1(ind+3,4:9))...
+        +(E1(ind+4,4:9))+(E1(ind+5,4:9))+(E1(ind+6,4:9))+(E1(ind+7,4:9)))/8;
+    S_star(t,:) = ((S1(ind,2:9))+(S1(ind+1,2:9))+(S1(ind+2,2:9))+(S1(ind+3,2:9))...
+        +(S1(ind+4,2:9))+(S1(ind+5,2:9))+(S1(ind+6,2:9))+(S1(ind+7,2:9)))/8;
+    t=t+1;
+end

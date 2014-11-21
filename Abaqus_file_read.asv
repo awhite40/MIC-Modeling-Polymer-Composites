@@ -31,6 +31,12 @@ while line <=size(rawdata,1)
     
 end
 %%
-chars = (E(1:8,4:9))
-E_star(1,:) = mean(char(E(1:8,:)));
-
+E1 = str2double(E);
+ind = 1;
+t=1;
+E_star = zeros(size(E)/8);
+for ind =1:8:size(E,1)
+    E_star(t,:) = ((E1(ind,4:9))+(E1(ind+1,4:9))+(E1(ind+2,4:9))+(E1(ind+3,4:9))...
+        +(E1(ind+4,4:9))+(E1(ind+5,4:9))+(E1(ind+6,4:9))+(E1(ind+7,4:9)))/8;
+    t=t+1;
+end

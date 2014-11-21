@@ -1,0 +1,25 @@
+
+
+
+a = rand(21,21,21,600);
+
+for i = 1:size(a,4)
+    
+    
+    
+end
+
+data
+
+
+
+% tmp = fft(a,[],1);
+% tmp = fft(tmp, [],2);
+% tmp = fft(tmp, [],3);
+% for ii = 1:600
+%     fftn(a(:,:,:,ii));
+% end
+
+
+
+% conj(tmp).*tmp

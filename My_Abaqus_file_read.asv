@@ -1,0 +1,51 @@
+function [ E_star,S_star ] = My_Abaqus_file_read( filename,n )
+%UNTITLED3 Summary of this function goes here
+%   n = number of elements currently 21 on a side of cube
+
+[rawdata] = importdata(filename,' ',1e8);
+load('_data
+line = 1;
+E = cell((n^3)*8,9);
+S = cell((n^3)*8,9);
+%%
+while line <=size(rawdata,1)
+    
+    if strcmp(st,rawdata(line,1))
+        chars = char(rawdata(line+3:line+2+(n^3)*8,1));
+        for j = 1:size(chars,1)
+            E(j,:) = strsplit(chars(j,:));
+        end
+        line = line +2+n^3*8;
+    end
+    
+    if strcmp(st2,rawdata(line,1))
+        chars = char(rawdata(line+3:line+2+(n^3)*8,1));
+        for j = 1:size(chars,1)
+            S(j,:) = strsplit(chars(j,:));
+        end
+        line = line +2+n^3*8;
+    end
+    
+    line = line+1;
+    
+end
+delete(rawdata)
+delete(chars)
+%%
+E1 = str2double(E);
+t=1;
+E_star = zeros(size(E,1)/8,size(E,2)-1);
+S1 = str2double(S);
+S_star = zeros(size(S,1)/8,size(S,2)-1);
+for ind =1:8:size(E,1)
+    E_star(t,:) = ((E1(ind,2:9))+(E1(ind+1,2:9))+(E1(ind+2,2:9))+(E1(ind+3,2:9))...
+        +(E1(ind+4,2:9))+(E1(ind+5,2:9))+(E1(ind+6,2:9))+(E1(ind+7,2:9)))/8;
+    S_star(t,:) = ((S1(ind,2:9))+(S1(ind+1,2:9))+(S1(ind+2,2:9))+(S1(ind+3,2:9))...
+        +(S1(ind+4,2:9))+(S1(ind+5,2:9))+(S1(ind+6,2:9))+(S1(ind+7,2:9)))/8;
+    t=t+1;
+end
+
+
+
+end
+

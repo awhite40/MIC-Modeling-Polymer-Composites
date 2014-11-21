@@ -1,0 +1,27 @@
+
+clear
+clc
+close all
+
+a = round(rand(21,21,21,600));
+tic
+for i = 1:size(a,4)
+    
+    data(:,i) = Spatial_stats_function(a(:,:,:,i));
+    
+end
+toc
+
+
+
+
+% tmp = fft(a,[],1);
+% tmp = fft(tmp, [],2);
+% tmp = fft(tmp, [],3);
+% for ii = 1:600
+%     fftn(a(:,:,:,ii));
+% end
+
+
+
+% conj(tmp).*tmp
