@@ -84,13 +84,13 @@ xd = get(hsp,'XData');
 yd = get(hsp,'YData');
 zd = get(hsp,'ZData');
 
-slice(fftshift(Rand.cstats),xd,yd,zd)
+slice(fftshift(Rand.stats),xd,yd,zd)
 hold on
-slice(fftshift(Rand.cstats),11,11,1)
+slice(fftshift(Rand.stats),11,11,1)
 colorbar
 hold off
 
 figure
 
-slice(fftshift(Elong.cstats),11,11,1)
+slice(fftshift(Elong.stats),11,11,1)
 colorbar

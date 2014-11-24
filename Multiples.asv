@@ -1,15 +1,16 @@
 
+clear
+clc
+close all
 
-
-a = rand(21,21,21,600);
-
+tic
 for i = 1:size(a,4)
     
-    
+    data(:,i) = Spatial_stats_function(a(:,:,:,i));
     
 end
+toc
 
-data
 
 
 
