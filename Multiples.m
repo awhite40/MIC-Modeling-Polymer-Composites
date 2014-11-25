@@ -2,11 +2,11 @@
 clear
 clc
 close all
-load('RandFib.mat');
+load('DiagFib.mat');
 tic
-for i = 1:size(RandFib,4)
+for i = 1:size(DiagFib,4)
     
-    data(:,i) = Spatial_stats_function(RandFib(:,:,:,i));
+    data(:,i) = Spatial_stats_function(DiagFib(:,:,:,i));
     
 end
 toc
