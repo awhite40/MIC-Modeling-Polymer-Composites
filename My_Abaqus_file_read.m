@@ -1,7 +1,10 @@
 function [ Emat,Smat ] = My_Abaqus_file_read( filename,n )
 %UNTITLED3 Summary of this function goes here
 %   n = number of elements on a side of a cube currently 21 
-[rawdata] = importdata(filename,' ',1e8);
+tic
+rawdata = importdata(filename,' ',1e8);
+
+%%
 load('_data/st.mat')
 load('_data/st2.mat')
 line = 1;
@@ -29,8 +32,6 @@ while line <=size(rawdata,1)
     line = line+1;
     
 end
-delete('rawdata')
-delete('chars')
 %%
 E1 = str2double(E);
 t=1;
@@ -46,26 +47,26 @@ for ind =1:8:size(E,1)
         +(S1(ind+4,2:9))+(S1(ind+5,2:9))+(S1(ind+6,2:9))+(S1(ind+7,2:9)))/8;
     t=t+1;
 end
-Smat(1,1,:) = S_star(:,1);
-Smat(1,2,:) = S_star(:,2);
-Smat(2,1,:) = S_star(:,2);
-Smat(1,3,:) = S_star(:,3);
-Smat(3,1,:) = S_star(:,3);
-Smat(2,2,:) = S_star(:,4);
-Smat(2,3,:) = S_star(:,5);
-Smat(3,2,:) = S_star(:,5);
-Smat(3,3,:) = S_star(:,6);
+Smat(1,1,:) = S_star(:,3);
+Smat(1,2,:) = S_star(:,4);
+Smat(2,1,:) = S_star(:,4);
+Smat(1,3,:) = S_star(:,5);
+Smat(3,1,:) = S_star(:,5);
+Smat(2,2,:) = S_star(:,6);
+Smat(2,3,:) = S_star(:,7);
+Smat(3,2,:) = S_star(:,7);
+Smat(3,3,:) = S_star(:,8);
 
-Emat(1,1,:) = E_star(:,1);
-Emat(1,2,:) = E_star(:,2);
-Emat(2,1,:) = E_star(:,2);
-Emat(1,3,:) = E_star(:,3);
-Emat(3,1,:) = E_star(:,3);
-Emat(2,2,:) = E_star(:,4);
-Emat(2,3,:) = E_star(:,5);
-Emat(3,2,:) = E_star(:,5);
-Emat(3,3,:) = E_star(:,6);
+Emat(1,1,:) = E_star(:,3);
+Emat(1,2,:) = E_star(:,4);
+Emat(2,1,:) = E_star(:,4);
+Emat(1,3,:) = E_star(:,5);
+Emat(3,1,:) = E_star(:,5);
+Emat(2,2,:) = E_star(:,6);
+Emat(2,3,:) = E_star(:,7);
+Emat(3,2,:) = E_star(:,7);
+Emat(3,3,:) = E_star(:,8);
 
-
+toc
 end
 
