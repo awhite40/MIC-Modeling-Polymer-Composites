@@ -1,8 +1,13 @@
-function [ C_avg,Cavg] = My_Abaqus_file_read( filename,n )
+function [ Savg,Eavg,C_avg] = My_Abaqus_file_read( filename,n )
 %UNTITLED3 Summary of this function goes here
 %   n = number of elements on a side of a cube currently 21 
 rawdata = importdata(filename,' ',1e8);
-
+if size(rawdata,1) < 1000
+   Savg = nan(3,3);
+   Eavg = NaN(3,3);
+   C_avg = NaN(3,3,3,3);
+   
+else
 %%
 load('_data/st.mat')
 load('_data/st2.mat')
@@ -76,32 +81,14 @@ while i<=3
     while j<=3
         Savg(i,j) = mean(Smat(i,j,:));
         Eavg(i,j) = mean(Emat(i,j,:));
+        if Eavg(i,j)<1e-10
+            Eavg(i,j) =0;
+        end
         j=j+1;
     end
     i=i+1;
 end
 
-
-i=1;
-C_star = zeros(3,3,3,3,size(Emat,3));
-while i<=3
-    j=1;
-    while j<=3
-        k=1;
-        while k<=3
-            l=1;
-            while l<=3;
-               C_star(i,j,k,l,:) = Smat(i,j,:)./Emat(k,l,:);
-               C_avg(i,j,k,l) = Savg(i,j)./Eavg(k,l);
-               l=l+1; 
-            end
-            k=k+1;
-        end
-        j=j+1;
-    end
-    i = i+1;
-end
-
 i=1;
 while i<=3
     j=1;
@@ -109,10 +96,9 @@ while i<=3
         k=1;
         while k<=3
             l=1;
-            while l<=3;
-               
-               Cavg(i,j,k,l) =mean(C_star(i,j,k,l,:));
-               l=l+1; 
+            while l<=3
+                C_avg(i,j,k,l) = Savg(i,j)./Eavg(k,l);
+                l=l+1;
             end
             k=k+1;
         end
@@ -121,4 +107,4 @@ while i<=3
     i = i+1;
 end
 end
-
+end

@@ -1,11 +1,11 @@
 
-[rawdata] = importdata('tst.dat',' ',1e8);
+[rawdata] = importdata('ElongFib1.dat',' ',1e8);
 n = 21;
-st = rawdata(268,1);
-st2 = rawdata(74373,1);
+st = rawdata(272,1);
+st2 = rawdata(74377,1);
 line = 1;
-E = cell((n^3)*8,9);
-S = cell((n^3)*8,9);
+%E = cell((n^3)*8,9);
+%S = cell((n^3)*8,9);
 %%
 while line <=size(rawdata,1)
     
@@ -68,11 +68,11 @@ Emat(2,3,:) = E_star(:,5);
 Emat(3,2,:) = E_star(:,5);
 Emat(3,3,:) = E_star(:,6);
 %%
-Smat = ones(3,3,10);
-Emat = ones(3,3,10);
-
-Smat(1,1,:)=10;
-Emat(1,2,1)= 5;
+% Smat = ones(3,3,10);
+% Emat = ones(3,3,10);
+% 
+% Smat(1,1,:)=10;
+% Emat(1,2,1)= 5;
 
 
 %%
@@ -82,6 +82,9 @@ while i<=3
     while j<=3
         Savg(i,j) = mean(Smat(i,j,:));
         Eavg(i,j) = mean(Emat(i,j,:));
+        if Eavg(i,j)<1e-8
+            Eavg(i,j) =0;
+        end
         j=j+1;
     end
     i=i+1;
@@ -89,42 +92,12 @@ end
 
 
 i=1;
-C_star = zeros(3,3,3,3,size(Emat,3));
 while i<=3
     j=1;
     while j<=3
-        k=1;
-        while k<=3
-            l=1;
-            while l<=3;
-               C_star(i,j,k,l,:) = Smat(i,j,:)./Emat(k,l,:);
-               C_avg(i,j,k,l) = Savg(i,j)./Eavg(k,l);
-               l=l+1; 
-            end
-            k=k+1;
-        end
+        C_avg(i,j) = Savg(i,j)./Eavg(1,1);
+            
         j=j+1;
     end
     i = i+1;
 end
-
-i=1;
-while i<=3
-    j=1;
-    while j<=3
-        k=1;
-        while k<=3
-            l=1;
-            while l<=3;
-               
-               Cavg(i,j,k,l) = mean(C_star(i,j,k,l,:));
-               l=l+1; 
-            end
-            k=k+1;
-        end
-        j=j+1;
-    end
-    i = i+1;
-end
-
-
