@@ -9,6 +9,7 @@ images:
 - https://farm8.staticflickr.com/7494/15999543692_6f33acd789_o.png
 - https://farm8.staticflickr.com/7471/15813052978_230a26d6fe_o.jpg
 - https://farm8.staticflickr.com/7484/15813118028_e1dfa97737_o.png
+- https://farm8.staticflickr.com/7559/15814600189_cf490c365f_o.png
 
 
 
@@ -43,7 +44,7 @@ Visualization and analytics are the integral part of data analysis. Details of d
 
 ### Image Segmentation
 For digital representation of the material structure, it is required to segment the two phases in our samples. In colloboration
-with Dr. Tony Fast, we developed a image segmentation algorithm known as "[Multimodal Data Segmentation using Peak Fitting
+with [Dr. Tony Fast](https://github.com/tonyfast), we developed a image segmentation algorithm known as "[Multimodal Data Segmentation using Peak Fitting
 Algorithm and Gaussian Likelihood Maximization](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/15/Segmentation-via-Gaussian-Likelihood-Approximation.html)" to
 segment the highly complex and uncertain fibrous microstructures.
 
@@ -52,6 +53,7 @@ segment the highly complex and uncertain fibrous microstructures.
 ### Microstructure and Physical Property Simulation
 To establish a structure-property linakge, we require a rich dataset consisting of varied microstructures and their corresponding
 properties. Due to lack of enough number of real samples, we go for simulating a variety of microstructures as shown in following figure.
+To do this task, we extensively colloborated with our Materials Informatics class mate [Dipen Patel](https://github.com/Materials-Informatics-Lab).
 
 ![Real and Segmented Microstructures]({{page.images[2]}})
 
@@ -64,6 +66,8 @@ In order to quantify spatial correlations in the microstructures, we employ 2-po
 associated with finding local states h and h' at the tail and head of a prescribed vector r randomly placed into the microstructure"
 (Kalidindi, 2014). Details about the 2-point statistics on real samples can be found in the following posts: [Post 1](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/24/Spatial_Statistics.html),
 [Post 2](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/28/Normalized_Spacial_Stats.html), [Post 3](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/29/Presentation.html).
+
+![2PS]({{page.images[6]}})
 
 ### Dimensionality Reduction
 2-point statistics of each of the microstructures are a high-dimensional data. We use classic statistical technique known as principal
