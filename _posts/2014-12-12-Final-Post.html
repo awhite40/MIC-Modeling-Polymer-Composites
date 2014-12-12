@@ -69,13 +69,16 @@ segment the highly complex and uncertain fibrous microstructures.  We also colla
 ![Real and Segmented Microstructure]({{page.images[1]}})
 
 ### Microstructure and Physical Property Simulation
-To establish a structure-property linakge, we require a rich dataset consisting of varied microstructures and their corresponding
+To establish a structure-property linkage, we require a rich dataset consisting of varied microstructures and their corresponding
 properties. Due to lack of enough number of real samples, we go for simulating a variety of microstructures as shown in following figure.
-To do this task, we extensively colloborated with our Materials Informatics class mate [Dipen Patel](https://github.com/Materials-Informatics-Lab).
+To do this task, we extensively collaborated with our Materials Informatics class mate [Dipen Patel](https://github.com/Materials-Informatics-Lab).
 
 ![Simulated Microstructures]({{page.images[2]}})
 
-(Please elaborate) Finite element method is used to calculate the property.
+(How did we convert the microstructures to be used in Abaqus?)
+Finite element method is used to calculate the first component of the stiffness tensor.  A [code](https://github.com/awhite40/MIC-Modeling-Polymer-Composites/blob/gh-pages/Abaqus_file_read.m) was developed to read the 
+Abaqus files and extract the sigma and epsilon values.  Then the values were used to calculate the stiffness tensor.  This was done on both 
+the physical and the simulated microstructures for comparison.  
 
 ![FEM]({{page.images[3]}})
 
@@ -99,7 +102,14 @@ and property obtained from FEM for the microstructures are the inputs and ouput 
 
 ![FEM]({{page.images[5]}})
 
-### Sucesses and Closure
+### Challenges Encountered
+1) Simple segmentation is insufficient to resolve the image into 2 phases
+
+2) Fiber metrics are difficult to extract in the 3D space particularly because of overlapping fibers at our resolution
+
+2) Insufficient variety of data to create linkages
+
+### Successes and Closure
 1) Carried out analysis of real microstructures: Visualization, Analytics, Segmentation, 2-Point Statistics
 
 2) Simulated microstructures and property data to build a dataset required for linkage development
@@ -111,21 +121,20 @@ and property obtained from FEM for the microstructures are the inputs and ouput 
 ### Collaboration
 1) Dr. Tony Fast: Data Visualization and Analytics, Segmentation and 2-Point Statistics
 
-2) Dipen Patel: Microstructure Simulation and Finite Element Analysis
+2) Nils Persson and Dalar Nazarian: Brainstorming on segmentation
 
-### Challenges Encountered, Failures and Scope for Future Work
+3) Dipen Patel: Microstructure Simulation and Finite Element Analysis
+
+### Scope for Future Work
 1) Need to obtain some more real microstructures.
 
 2) Carry out physical experimental testing on those real samples to get real property data
 
 3) Measure fibre metrics like length, width, curvature etc.
 
-4) Incorporate aformentioned fibre metrics while simulating some more variety of microstructures
+4) Incorporate aforementioned fibre metrics while simulating some more variety of microstructures
 
-5) Perform FEM analysis on those simulated microstructures
-
-6) Once the tasks 1-5 are completed, it would be easier to go from there. Spatial Staistics, PCA and Regression Modelling 
-would be the next steps.
+5) Use established process to improve linkage using new microstructures
 
 ### Matlab Tools
 1) Image Reconstruction: http://stackoverflow.com/questions/12800333/matlab-3d-ct-image-reconstruction-by-2d-slices 
@@ -146,6 +155,6 @@ August/September - Formulated project goals and approaches.  Collected samples a
 
 October - Collected second sample and applied process as then developed.  Worked on developing segmentation methods.  Began looking at 2 point statistics for our samples. 
 
-November/December - Investigated liturature models for determining composite properties.  Simulated microstructures and determined 2 point statistics.  Performed PCA on all samples.  Develop first iteration of structure-property linkage.  
+November/December - Investigated literature models for determining composite properties.  Simulated microstructures and determined 2 point statistics.  Performed PCA on all samples.  Develop first iteration of structure-property linkage.  
 
 
