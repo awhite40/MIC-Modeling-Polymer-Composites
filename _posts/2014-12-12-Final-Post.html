@@ -71,13 +71,15 @@ Some work was done on using the segmented images to determine fiber metrics but 
 
 ### Microstructure and Physical Property Simulation
 To establish a structure-property linkage, we require a rich dataset consisting of varied microstructures and their corresponding
-properties. Due to lack of enough number of real samples, we go for simulating a variety of microstructures as shown in following figure.
+properties. Due to lack of enough number of real samples, we go for simulating a variety of microstructures as shown in following figure.  These microstructures were 
+chosen to simulate the extreems of possible fiber orientations.  We simulated over 300 structures for each of these types.  The elongated samples represent strain being applied parallel and perpendicular to 
+the fiber direction respectively.  The diagonal fibers were to simulate the case that the fibers were at an angle to applied strain.  Our real samples
+will include fibers with all of these orientations.  We also varied volume fraction to get a more rich field of microstructures.  
 To do this task, we extensively collaborated with our Materials Informatics class mate [Dipen Patel](https://github.com/Materials-Informatics-Lab).
 
 ![Simulated Microstructures]({{page.images[2]}})
 
-Input files were created from the simulated microstructures with this [code]( ).
-Finite element method is used to calculate the first component of the stiffness tensor.  A [code](https://github.com/awhite40/MIC-Modeling-Polymer-Composites/blob/gh-pages/Abaqus_file_read.m) was developed to read the 
+Abaqus input files were created from the simulated microstructures.  Finite element method is used to calculate the first component of the stiffness tensor.  A [code](https://github.com/awhite40/MIC-Modeling-Polymer-Composites/blob/gh-pages/Abaqus_file_read.m) was developed to read the 
 Abaqus files and extract the sigma and epsilon values.  Then the values were used to calculate the stiffness tensor.  This was done on both 
 the physical and the simulated microstructures for comparison.  
 
@@ -174,7 +176,7 @@ Work primarily done by Alicia
 
 * Analysis of FEM Results
 
-* Website management and creation of posts
+* Website management
 
 
 Work Primarily done by Geet
