@@ -66,7 +66,7 @@ For digital representation of the material structure, it is required to segment 
 with [Dr. Tony Fast](https://github.com/tonyfast), we developed a image segmentation algorithm known as "[Multimodal Data Segmentation using Peak Fitting
 Algorithm and Gaussian Likelihood Maximization](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/15/Segmentation-via-Gaussian-Likelihood-Approximation.html)" to
 segment the highly complex and uncertain fibrous microstructures.  We also collaborated with classmates Nils Persson and Dalar Nazarian for brainstorming segementation ideas.  
-
+Some work was done on using the segmented images to determine fiber metrics but that work is not complete.  
 ![Real and Segmented Microstructure]({{page.images[1]}})
 
 ### Microstructure and Physical Property Simulation
@@ -76,7 +76,7 @@ To do this task, we extensively collaborated with our Materials Informatics clas
 
 ![Simulated Microstructures]({{page.images[2]}})
 
-(How did we convert the microstructures to be used in Abaqus?)
+Input files were created from the simulated microstructures with this [code]( ).
 Finite element method is used to calculate the first component of the stiffness tensor.  A [code](https://github.com/awhite40/MIC-Modeling-Polymer-Composites/blob/gh-pages/Abaqus_file_read.m) was developed to read the 
 Abaqus files and extract the sigma and epsilon values.  Then the values were used to calculate the stiffness tensor.  This was done on both 
 the physical and the simulated microstructures for comparison.  
@@ -152,7 +152,31 @@ and property obtained from FEM for the microstructures are the inputs and ouput 
 
 6) Multivariate Polynomial Regression: http://www.mathworks.com/matlabcentral/fileexchange/34918-multivariate-polynomial-regression
 
-### Project Timeline
+### Project timeline
 
 ![Timeline]({{page.images[7]}})
+
+### Primary Responsibilities
+
+Work primarily done by Alicia
+* Coordinate collection of CT data
+* 2D visualization 
+* Collection of 2 point statistics
+* Initial thresholding
+* Work on determining fiber metrics
+* Literature Search
+* Analysis of FEM results
+
+Work Primarily done by Geet
+* 3D data visualization
+* Peak fitting for segmentation
+* Gaussian fit for segmentation
+* Microstructure simulation
+* Running FEM simualtions
+* PCA and Regression
+* Linkage Development
+
+
+
+
 
