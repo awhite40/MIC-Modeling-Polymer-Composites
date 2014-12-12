@@ -12,7 +12,6 @@ images:
 - https://farm8.staticflickr.com/7559/15814600189_cf490c365f_o.png
 
 references:
-- http://www.maneyonline.com/doi/citedby/10.1179/174328008X325223
 - W. Voigt, ”On the relation between the elasticity constants of isotropic bodies," Ann Phys Chem 274 (1889): 573-587.
 - A. Reuss and Z. Angrew, ”A calculation of bulk modulus of polycrystaliine materials." ZAMM- Journal of Apllied Mathmatics and Mechanics, Vol. 9, No. 1, 1929, pp.49-58
 - http://onlinelibrary.wiley.com/doi/10.1002/pc.20002/pdf
@@ -30,10 +29,10 @@ of the microstructure caused by the forming methods.  Our samples were taken fro
 flow of the material as the part is formed.  For an explanation of the how the part is formed see [this post](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/19/Processing_Conditions.html).
 The configuration of the fibers within the part is important knowledge to have for property prediction.  
 
-During the course of the project we researched how this type of problem has been approached in the past.  The simplist models predict properties 
+During the course of the project we researched how this type of problem has been approached in the past.  The simplest models predict properties 
 based solely on the properties of the individual components and their volume fractions.  For example, the Voigt and Ruess models are used to determine 
 bounds on what the mechanical properties can be. However, to get more accurate predictions, more knowledge of the actual structure is necessary. 
-Other researchers have attempted to look at similar systems by using using a variety of different assumptions.  One common assumtion is that the fibers are 
+Other researchers have attempted to look at similar systems by using a variety of different assumptions.  One common assumption is that the fibers are 
 rigid.  This assumption allows the reconstruction of the microstructure from images of slices of the material.  While this assumption can 
 produce reasonable results for short fiber composites, it is not a valid method for long fiber composites.  
 
@@ -57,11 +56,12 @@ Micro-CT produces data in a DICOM format.  Matlab's dicomread was used to extrac
 ### Data Visualization and Analytics
 Visualization and analytics are the integral part of data analysis. Details of data visualization and analytics can be found in the following posts: 
 [Post 1](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/17/Presentation1.html), [Post 2](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/29/Sample-Analytics.html),
-[Post 3](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/09/Sample-Analytics-N.html).
-The analytics guided us in begining the segmentation and the visualization was also very helpful in visually confirming the segmentation.  
+[Post 3](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/09/Sample-Analytics-N.html).  The challenge in visualization was
+finding a method that showed the rich variety of our microstructures. We used a combination of 2D slides and 3D imaging to get an accurate view of our samples.
+The analytics guided us in beginning the segmentation and the visualization was also very helpful in visually confirming the segmentation.  
 
 ### Image Segmentation
-For digital representation of the material structure, it is required to segment the two phases in our samples. In colloboration
+For digital representation of the material structure, it is required to segment the two phases in our samples. In collaboration
 with [Dr. Tony Fast](https://github.com/tonyfast), we developed a image segmentation algorithm known as "[Multimodal Data Segmentation using Peak Fitting
 Algorithm and Gaussian Likelihood Maximization](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/15/Segmentation-via-Gaussian-Likelihood-Approximation.html)" to
 segment the highly complex and uncertain fibrous microstructures.
