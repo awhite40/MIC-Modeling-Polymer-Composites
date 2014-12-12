@@ -16,6 +16,7 @@ references:
 - W. Voigt, ”On the relation between the elasticity constants of isotropic bodies," Ann Phys Chem 274 (1889): 573-587.
 - A. Reuss and Z. Angrew, ”A calculation of bulk modulus of polycrystaliine materials." ZAMM- Journal of Apllied Mathmatics and Mechanics, Vol. 9, No. 1, 1929, pp.49-58
 - http://onlinelibrary.wiley.com/doi/10.1002/pc.20002/pdf
+- http://www.maneyonline.com/doi/abs/10.1179/1743280414Y.0000000043
 
 
 ---
@@ -45,17 +46,19 @@ following figure.
 ![Flowchart]({{page.images[0]}})
 
 ### GFRP Sample Collection
-Please discuss about slide #6
+Two samples were cut from a molded plate created by the process explained in [this post](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/19/Processing_Conditions.html).  
+Our samples were labeled S and N.  Sample S was cut from near the injection location.  Sample N was cut from an area away from the injection location in the direction of flow.  
 
 ### Micro-CT and DICOM Data
-After the samples are manufactured, Micro-CT is performed to get the cross-sections of the samples. Cross-sections help in creating
-a 3D-model. Few of the example cross-sections can be seen [here](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/10/Visualizing-Data.html).
-Please add rest of the details from slide #6.
+After the samples are manufactured, Micro-CT is performed to get the layered cross-sections of the samples. Micro-CT was chosen for the ability to create 
+accurate 3D images and to differentiate between materials of differing densities.  A few of the example cross-sections can be seen [here](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/10/Visualizing-Data.html).
+Micro-CT produces data in a DICOM format.  Matlab's dicomread was used to extract the data from these files.  
 
 ### Data Visualization and Analytics
 Visualization and analytics are the integral part of data analysis. Details of data visualization and analytics can be found in the following posts: 
 [Post 1](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/17/Presentation1.html), [Post 2](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/09/29/Sample-Analytics.html),
 [Post 3](http://awhite40.github.io/MIC-Modeling-Polymer-Composites/2014/10/09/Sample-Analytics-N.html).
+The analytics guided us in begining the segmentation and the visualization was also very helpful in visually confirming the segmentation.  
 
 ### Image Segmentation
 For digital representation of the material structure, it is required to segment the two phases in our samples. In colloboration
