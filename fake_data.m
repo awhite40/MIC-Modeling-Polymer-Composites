@@ -2,7 +2,7 @@ close all
 clear
 clc
 
-f =3 ;
+f =4 ;
 slope =sqrt(2);
 
 % Creating a fake microstructure in 2D
@@ -85,8 +85,8 @@ elseif f==3
 elseif f==4
     normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
     load _data/SegSample2P2.mat
-    fake = normalize(I(:,:,100));
-    imshow(fake);
+    fake = normalize(I(1:50,1:50,1:50));
+    imshow(fake(:,:,10));
 end
 
 
