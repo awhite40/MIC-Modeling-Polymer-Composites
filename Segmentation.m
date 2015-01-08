@@ -1,12 +1,9 @@
-<<<<<<< Updated upstream
-matrix=load('Scropped.mat');
-=======
+
 matrix=load('_data/Ncropped');
->>>>>>> Stashed changes
-cropped=matrix.cropped;
+cropped=matrix.Ncropped;
 cropped1=double(cropped);
 cropped2=cropped1(:);
-[yy,xx] = hist(cropped2,151);
+[yy,xx] = hist(cropped2,100);
 
 % peakfit(signal,center,window,NumPeaks,peakshape); 
 % "peakshape" specifies the peak shape of the model: (1=Gaussian
@@ -30,7 +27,7 @@ cropped2=cropped1(:);
 
 figure
 % Fitting two peaks with Gaussian
-[FitResults,FitError]= peakfit([xx;yy],0,0,2,1);
+[FitResults,FitError]= peakfit([xx;yy],0,0,3,1);
 
 [r,c]=size(FitResults);
 

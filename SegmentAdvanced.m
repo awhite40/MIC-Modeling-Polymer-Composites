@@ -34,7 +34,7 @@ addpath( loc )
 % Steal these from segmentprob.m
 % Adjust and normalize image data
 
-normalize = @(A)( A-min(A(:)) ) ./ ( max(A(:)) - min(A(:)) );
+normalize = @(A)( double(A)-double(min(A(:))) ) ./ (double( max(A(:))) - double(min(A(:))) );
 adjust = @(A)reshape(  ... back to original shape
                 imadjust( ... adjust image
                         reshape( ... flatten to 2-D image
@@ -49,7 +49,7 @@ adjust = @(A)reshape(  ... back to original shape
 % composite sepcimen for testing.
 
 load( '_data/Cropped_fiber_matrix_400_400.mat' )
-cropped = double( cropped );
+cropped = double( Scropped );
 
 %% Segment the Image
 %
@@ -68,7 +68,7 @@ cropped = double( cropped );
 %   can be found.
 
 A = adjust( normalize( cropped ) ) -  normalize( cropped ) ;
-out = segmentprob( adjust( normalize(cropped) ), 151, 5);
+out = segmentprob( adjust( normalize(cropped) ), 151,3);
 
 %%
 %
