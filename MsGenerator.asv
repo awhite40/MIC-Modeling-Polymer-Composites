@@ -141,13 +141,13 @@ else if filter == 2
                     cf(1:Iso1,1:Iso2,1:Iso3) = f(1:Iso1,1:Iso2,1:Iso3);
                 elseif filter ==6
                     cf = zeros(Dim);
-                    for l=1:size(Dim,1)
+                    for l=1:size(Dim)
                        cf(l,l,1)=1; 
                     end
                 elseif filter ==7
                     cf = zeros(Dim);
-                    for l = 1:size(Dim,1)
-                        cf(size(Dim,1)+1-l,l,1)=1;
+                    for l = 1:size(Dim)
+                        cf(size(Dim)+1-l,size(Dim)+1-l,1)=1;
                     end
                         
                     

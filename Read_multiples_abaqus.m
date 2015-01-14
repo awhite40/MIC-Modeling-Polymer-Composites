@@ -30,7 +30,7 @@ tic
 for p=101:200
 
     filename = sprintf('ElongYFib%d.dat',p);
-    if exist(filename, 'file') ==2
+    if exist(filename, 'file') == 2
         [CavgY(:,:,:,:,p),Cs_avgY(:,:,:,:,p)] = My_Abaqus_file_read( filename );
     end
     

@@ -1,4 +1,4 @@
-function [C_avg,Cs_avg] = My_Abaqus_file_read( filename, n )
+function [C_avg] = My_Abaqus_file_read( filename, n )
 %UNTITLED3 Summary of this function goes here
 %   n = number of elements on a side of a cube currently 21 
 rawdata = importdata(filename,' ',1e8);

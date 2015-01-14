@@ -1,8 +1,9 @@
 
-[rawdata] = importdata('ElongFib1.dat',' ',1e8);
+[rawdata] = importdata('DiagFib4.dat',' ',1e8);
 n = 21;
-st = rawdata(272,1);
-st2 = rawdata(74377,1);
+% st = rawdata(272,1);
+% st2 = rawdata(74377,1);
+load('st1.mat')
 line = 1;
 %E = cell((n^3)*8,9);
 %S = cell((n^3)*8,9);
